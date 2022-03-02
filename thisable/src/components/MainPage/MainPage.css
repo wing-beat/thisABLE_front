@@ -1,0 +1,28 @@
+.PlaceListContainer {
+    border: 2px solid #E599B3;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin: 15px 20px;
+    padding: 15px;
+}
+.placeType {
+    font-size: 0.9rem;
+    margin-left: 10px;    
+    color: #727272;
+}
+.placeDist {
+    color: #F0A044;
+}
+.placeAddr {
+    font-size: 0.9rem;
+    color: #B0B0B0;
+    font-weight: 300;
+}
+.placeIcon {    
+    display: flex;
+    margin-top: 8px;
+    justify-content: flex-end;
+}
+.placeIcon > img {
+    margin-right: 5px;
+}
