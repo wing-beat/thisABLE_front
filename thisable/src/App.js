@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import DetailPage from './components/DetailPage/DetailPage';
 import MainPage from './components/MainPage/MainPage';
-
 function App() {
   return (
     <div className="App">
