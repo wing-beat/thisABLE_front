@@ -1,0 +1,191 @@
+.maincontainer{
+ display: flex;   
+ flex-direction: column;
+ align-content: center;
+}
+
+.placedetail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.placenametype {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    margin-top: 1rem;
+}
+
+.placename {
+    font-weight: bold;
+}
+
+.placetype {
+    color: #00B8E0;
+    font-size: 0.9rem;
+    margin-left: 10px;  
+}
+
+.placeaddress {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #B0B0B0;
+    font-weight: 300;
+}
+
+.placerate {
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.placeiconlist {
+    margin-top: 1rem;
+    display: flex;
+    margin-top: 8px;
+    width: 300px;
+    justify-content: space-evenly;
+}
+
+.placeicon {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 60px;
+}
+
+.placeiconname {
+    font-size: 0.7rem;
+}
+
+.showtoilet {
+
+}
+
+.hidetoilet {
+
+}
+
+.reviewcontainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.reviewinputtop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+
+.reviewtitle {
+    font-size: 1rem;
+}
+
+.reviewinputstar{
+    font-size: 2rem;
+}
+
+.reviewinput {
+    border: 2px solid #9D9D9D;
+    border-radius: 10px;
+    font-size: 0.5rem;
+    min-height: 3rem;
+    padding: 0.3rem;
+    margin-top: 1rem;
+}
+
+.reviewinputbutton {
+    display: flex;
+    background-color: #E599B3;
+    font-weight: bold;
+    font-size: 0.5rem;
+    margin-top: 1rem;
+    height: 1.3rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border-color: #E599B3;
+}
+
+.reviewlist {
+    display: flex;
+    flex-direction: column;
+}
+
+.reviewlisttitle {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    flex-direction: row;
+}
+
+.reviewlistnum {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.reviewlistsort {
+    font-size: 1rem;
+}
+
+.review {
+
+}
+
+.reviewtop {
+    display: flex;
+    justify-content: space-around;
+}
+
+.reviewtopleft {
+    display: flex;
+    align-items: center;
+    
+}
+
+.reviewstar {
+    font-size: 1rem;
+    color: #F0A044;
+    margin-right: 1rem;
+}
+
+.reviewuser {
+    position: relative;
+    font-size: 0.9rem;
+}
+
+.reviewdate {
+    color:#9D9D9D;
+    font-size: 0.7rem;
+}
+
+.reviewcontent {
+    font-size: 1rem;
+    align-items: center;
+}
+
+.helpbuttoncontainer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.helpbutton {
+    display: flex;
+    font-weight: bold;
+    font-size: 0.5rem;
+    margin-top: 1rem;
+    height: 1.3rem;
+    align-items: center;
+    border-radius: 10px;
+    border-color: #F0A044;
+    background-color: #ffffff;
+}
+
+.helpbuttonnum {
+    color: #CB3267;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-left: 0.6rem;
+}
