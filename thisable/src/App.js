@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import DetailPage from './components/DetailPage/DetailPage';
 import MainPage from './components/MainPage/MainPage';
+import MapPage from './components/MapPage/MapPage';
 function App() {
   return (
     <div className="App">
@@ -11,7 +12,8 @@ function App() {
         <div>        
           <Routes>
             <Route exact path="/" element={<MainPage />}></Route>
-            <Route path="/detail/:id" element={<DetailPage />}></Route>            
+            <Route path="/detail/:id" element={<DetailPage />}></Route>
+            <Route path="/map" element={<MapPage />}></Route>            
           </Routes>
         </div>
       </BrowserRouter> 
