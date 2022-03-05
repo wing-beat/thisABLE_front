@@ -16,6 +16,9 @@ const containerStyle = {
     lng: 128.580119
   };
 
+  const lat = 37.544127
+  const lng = 126.9667812
+
   const places = [
     {      
       location_code: "123",
