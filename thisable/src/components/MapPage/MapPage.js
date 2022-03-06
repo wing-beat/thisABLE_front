@@ -3,9 +3,6 @@ import { GoogleMap, LoadScript, Marker, InfoWindow, useJsApiLoader } from '@reac
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {geolocated} from "react-geolocated";
 
-
-const mapKey = process.env.REACT_APP_GOOGLE_MAP_API;
-
 const containerStyle = {
     width: '400px',
     height: '400px'
@@ -51,6 +48,19 @@ const containerStyle = {
       location_type: "음식점",
       name: "육쌈냉면 숙대점",
       address: "서울특별시 용산구 청파동 청파로",
+      latitude: 37.544928,
+      longitude: 126.967381,
+      distance: "0.5km",
+      icon1: true,
+      icon2: true,
+      icon3: false,
+      icon4: false
+    },
+    {
+      location_code: "123",
+      location_type: "음식점",
+      name: "육쌈냉면 숙대점",
+      address: "서울특별시 용산구 청파동 청파로",
       latitude: 37.544655335413886,
       longitude: 126.9669056190536,
       distance: "0.5km",
@@ -68,6 +78,18 @@ function MapPage() {
     width: "100%"
   }
 
+  const btnStyle = {             
+    backgroundColor: `white`,
+    padding: `6px 10px`,
+    borderRadius: `20px`,
+    boxShadow: `0 4px 4px rgba(0, 0, 0, 0.3)`,
+    fontSize: `14px`,
+    position: "absolute",
+    top: "10px",
+    left: "50%",
+    marginLeft: "-120px"    
+  }
+
   const {isLoaded} = useJsApiLoader({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API
   })
@@ -76,24 +98,24 @@ function MapPage() {
     return <GoogleMap
       mapContainerStyle={mapStyle}
       zoom={18}
-      center={{lat: +lat, lng: +lng}}>
+      center={{lat: +lat, lng: +lng}}>       
+        <div style={btnStyle} onClick={onClickToilet}>장애인 화장실</div>
         {renderMarker}
       </GoogleMap>
   }
 
-  const renderMarker =
-          places && places.map((place) => {
-            var latitude = place.latitude
-            var longitude = place.longitude
-            return (
-            <Marker
-              position= {{lat: latitude, lng: longitude}}/>
-          );
-        });
+    const renderMarker =
+    places && places.map((place) => {
+      var latitude = place.latitude
+      var longitude = place.longitude
+      return (  
+        <Marker
+          position= {{lat: latitude, lng: longitude}}/>
+    );
+  });
 
   return (
-    isLoaded ? renderMap() : <CircularProgress />
-    
+    isLoaded ? renderMap() : <CircularProgress />    
   )
 }
 
