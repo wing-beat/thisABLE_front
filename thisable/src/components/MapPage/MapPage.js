@@ -1,17 +1,8 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { GoogleMap, LoadScript, Marker, InfoWindow, useJsApiLoader } from '@react-google-maps/api';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {geolocated} from "react-geolocated";
-
-const containerStyle = {
-    width: '400px',
-    height: '400px'
-  };
-  
-  const center = {
-    lat: 35.8348707,
-    lng: 128.580119
-  };
+import './MapPage.css'
 
   const lat = 37.544127
   const lng = 126.9667812
@@ -26,8 +17,8 @@ const containerStyle = {
       longitude: 126.9667812,
       distance: "0.5km",
       icon1: true,
-      icon2: true,
-      icon3: false,
+      icon2: false,
+      icon3: true,
       icon4: false
     },
     {
@@ -39,9 +30,9 @@ const containerStyle = {
       longitude: 126.96686963681883,
       distance: "0.5km",
       icon1: true,
-      icon2: true,
+      icon2: false,
       icon3: false,
-      icon4: false
+      icon4: true
     },
     {
       location_code: "123",
@@ -51,10 +42,10 @@ const containerStyle = {
       latitude: 37.544928,
       longitude: 126.967381,
       distance: "0.5km",
-      icon1: true,
+      icon1: false,
       icon2: true,
       icon3: false,
-      icon4: false
+      icon4: true
     },
     {
       location_code: "123",
@@ -64,10 +55,10 @@ const containerStyle = {
       latitude: 37.544655335413886,
       longitude: 126.9669056190536,
       distance: "0.5km",
-      icon1: true,
+      icon1: false,
       icon2: true,
-      icon3: false,
-      icon4: false
+      icon3: true,
+      icon4: true
     }
   ];
 
@@ -78,40 +69,44 @@ function MapPage() {
     width: "100%"
   }
 
-  const btnStyle = {             
-    backgroundColor: `white`,
-    padding: `6px 10px`,
-    borderRadius: `20px`,
-    boxShadow: `0 4px 4px rgba(0, 0, 0, 0.3)`,
-    fontSize: `14px`,
-    position: "absolute",
-    top: "10px",
-    left: "50%",
-    marginLeft: "-120px"    
-  }
-
   const {isLoaded} = useJsApiLoader({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API
   })
+
+  const [category, setCategory] = useState("");
 
   const renderMap = () => {
     return <GoogleMap
       mapContainerStyle={mapStyle}
       zoom={18}
       center={{lat: +lat, lng: +lng}}>       
-        <div style={btnStyle} onClick={onClickToilet}>장애인 화장실</div>
+      <div className='filterBtnCont'>      
+        <div onClick={() => setCategory("icon1")}>장애인 화장실</div>
+        <div onClick={() => setCategory("icon2")}>휠체어 충전기</div>        
+        <div onClick={() => setCategory("icon3")}>엘리베이터</div>        
+        <div onClick={() => setCategory("icon4")}>슬로프</div>        
+        <div onClick={() => setCategory("")}>모두 보기</div>        
+      </div>
         {renderMarker}
-      </GoogleMap>
+    </GoogleMap>
   }
 
-    const renderMarker =
-    places && places.map((place) => {
-      var latitude = place.latitude
-      var longitude = place.longitude
-      return (  
-        <Marker
-          position= {{lat: latitude, lng: longitude}}/>
-    );
+  const renderMarker =
+    places && places
+      .filter((info) => {
+        if (category == "icon1") { return info.icon1 } 
+        else if (category == "icon2") { return info.icon2 }         
+        else if (category == "icon3") { return info.icon3 }         
+        else if (category == "icon4") { return info.icon4 }         
+        else { return true }
+      })      
+      .map((place) => {
+        var latitude = place.latitude
+        var longitude = place.longitude
+        return (  
+          <Marker
+            position= {{lat: latitude, lng: longitude}}/>
+      ) 
   });
 
   return (
