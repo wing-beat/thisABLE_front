@@ -12,7 +12,7 @@ import './MapPage.css'
     {      
       location_code: "123",
       location_type: "음식점",
-      name: "육쌈냉면 숙대점",
+      name: "맛있는 거 먹고 싶다 숙대점",
       address: "서울특별시 용산구 청파동 청파로",
       latitude: 37.544127,
       longitude: 126.9667812,
@@ -36,7 +36,7 @@ import './MapPage.css'
       icon4: true
     },
     {
-      location_code: "123",
+      location_code: "125",
       location_type: "음식점",
       name: "육쌈냉면 숙대점",
       address: "서울특별시 용산구 청파동 청파로",
@@ -49,7 +49,7 @@ import './MapPage.css'
       icon4: true
     },
     {
-      location_code: "125",
+      location_code: "126",
       location_type: "음식점",
       name: "에이그레이트 숙대점",
       address: "서울특별시 용산구 청파동 청파로",
@@ -87,46 +87,9 @@ function MapPage() {
   const renderMap = () => {
     return <GoogleMap
       mapContainerStyle={mapStyle}
-      zoom={18}
-//       center={{lat: +lat, lng: +lng}}
-//       onClick={() => setActiveMarker(null)}>
-//         {places.map(({location_code, location_type, name, address, latitude, longitude, distance}) => (
-//           <Marker
-//           position= {{lat: latitude, lng: longitude}}
-//           onClick={() => handleActiveMarker(location_code)}
-//           >
-//             {activeMarker === location_code ? (
-//             <InfoWindow
-//               onCloseClick={() => setActiveMarker(null)}>
-//                 <div className='infosindow_wrap' key={location_code}>
-//               <div className='infodindow'>
-//                 <div className='info_title'>
-//                 <div className='d-flex align-items-center'>
-//                   <h5 className='fw-bold'>{name}</h5>
-//                   <div className='placeType'>{location_type}</div>
-//                 </div>
-//                   <div className='placeDist'>{distance}</div>
-//                 </div>
-//                 <div className='info_etc'>
-//                 <div className='placeAddr'>{address}</div>
-//                   <div className='placeIcon'>
-//                     <img src={slopeImg}></img>
-//                     <img src={slopeImg}></img>
-//                     <img src={slopeImg}></img>
-//                     <img src={slopeImg}></img>
-//                   </div>
-//                 </div>
-//               </div>
-//               <div className='infowindow_anchor'></div>
-//             </div>
-//             </InfoWindow>
-//             ) : null}
-//           </Marker>
-//         ))}
-//       </GoogleMap>
-//   }
-
-      center={{lat: +lat, lng: +lng}}>       
+      zoom={18}      
+      center={{lat: +lat, lng: +lng}}
+      onClick={() => setActiveMarker(null)}>   
       <div className='filterBtnCont'>      
         <div onClick={() => setCategory("icon1")}>장애인 화장실</div>
         <div onClick={() => setCategory("icon2")}>휠체어 충전기</div>        
@@ -134,7 +97,7 @@ function MapPage() {
         <div onClick={() => setCategory("icon4")}>슬로프</div>        
         <div onClick={() => setCategory("")}>모두 보기</div>        
       </div>
-        {renderMarker}
+      {renderMarker}
     </GoogleMap>
   }
 
@@ -146,15 +109,40 @@ function MapPage() {
         else if (category == "icon3") { return info.icon3 }         
         else if (category == "icon4") { return info.icon4 }         
         else { return true }
-      })      
-      .map((place) => {
-        var latitude = place.latitude
-        var longitude = place.longitude
-        return (  
+      })  
+      .map((place) => (
           <Marker
-            position= {{lat: latitude, lng: longitude}}/>
-      ) 
-  });
+          position= {{lat: place.latitude, lng: place.longitude}}
+          onClick={() => handleActiveMarker(place.location_code)}
+          >
+          {activeMarker === place.location_code ? (
+            <InfoWindow
+              onCloseClick={() => setActiveMarker(null)}>
+                <div className='infosindow_wrap' key={place.location_code}>
+                  <div className='infodindow'>
+                    <div className='info_title'>
+                    <div className='d-flex align-items-center'>
+                      <h5 className='fw-bold'>{place.name}</h5>
+                      <div className='placeType'>{place.location_type}</div>
+                    </div>
+                      <div className='placeDist'>{place.distance}</div>
+                    </div>
+                    <div className='info_etc'>
+                    <div className='placeAddr'>{place.address}</div>
+                      <div className='placeIcon'>
+                        <img src={slopeImg}></img>
+                        <img src={slopeImg}></img>
+                        <img src={slopeImg}></img>
+                        <img src={slopeImg}></img>
+                      </div>
+                    </div>
+                  </div>
+                  <div className='infowindow_anchor'></div>
+                </div>
+            </InfoWindow>
+          ) : null}
+        </Marker>
+      ))
 
   return (
     isLoaded ? renderMap() : <CircularProgress />    
