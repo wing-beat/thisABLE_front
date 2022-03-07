@@ -1,8 +1,7 @@
-import { InfoWindow } from '@react-google-maps/api';
 import React from 'react';
 import slopeImg from '../../assets/images/slope.svg'
 
-const Infowindow = ({place}) => {
+const PlaceInfo = (place) => {
     return(
       <div className='infosindow_wrap' key={place.location_code}>
         <div className='infodindow'>
@@ -28,4 +27,4 @@ const Infowindow = ({place}) => {
     )
   }
 
-export default Infowindow;
+export default PlaceInfo;
