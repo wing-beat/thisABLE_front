@@ -3,6 +3,9 @@ import slopeImg from '../../assets/images/slope.svg'
 
 const PlaceInfo = (place) => {
     return(
+      <a
+        href={`detail/${place.location_code}`}
+        style ={{ textDecoration: "none" }}>
       <div className='infosindow_wrap' key={place.location_code}>
         <div className='infodindow'>
           <div className='info_title'>
@@ -24,6 +27,7 @@ const PlaceInfo = (place) => {
         </div>
         <div className='infowindow_anchor'></div>
       </div>
+      </a>
     )
   }
 
