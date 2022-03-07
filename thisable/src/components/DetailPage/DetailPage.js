@@ -79,11 +79,6 @@ function DetailPage() {
       badhelp: "22",
     },
   ]
-  const [toilettoggleopen,toiletcontent] = useState(false);
-
-  const toggle1 = () => {
-    toiletcontent(isOpen => !isOpen);
-  }
 
   return (
     <div className='maincontainer'>

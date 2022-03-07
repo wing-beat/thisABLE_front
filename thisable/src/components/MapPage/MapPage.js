@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { GoogleMap, LoadScript, Marker, InfoWindow, useJsApiLoader } from '@react-google-maps/api';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {geolocated} from "react-geolocated";
+import slopeImg from '../../assets/images/slope.svg'
 import './MapPage.css'
 
   const lat = 37.544127
@@ -22,9 +23,9 @@ import './MapPage.css'
       icon4: false
     },
     {
-      location_code: "123",
+      location_code: "124",
       location_type: "음식점",
-      name: "육쌈냉면 숙대점",
+      name: "몬스터플레이스 숙대점",
       address: "서울특별시 용산구 청파동 청파로",
       latitude: 37.54442234376629,
       longitude: 126.96686963681883,
@@ -48,9 +49,9 @@ import './MapPage.css'
       icon4: true
     },
     {
-      location_code: "123",
+      location_code: "125",
       location_type: "음식점",
-      name: "육쌈냉면 숙대점",
+      name: "에이그레이트 숙대점",
       address: "서울특별시 용산구 청파동 청파로",
       latitude: 37.544655335413886,
       longitude: 126.9669056190536,
@@ -73,12 +74,58 @@ function MapPage() {
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API
   })
 
+  const [activeMarker, setActiveMarker] = useState(null);
   const [category, setCategory] = useState("");
+
+  const handleActiveMarker = (marker) => {
+    if (marker === activeMarker) {
+      return;
+    }
+    setActiveMarker(marker);
+  };  
 
   const renderMap = () => {
     return <GoogleMap
       mapContainerStyle={mapStyle}
       zoom={18}
+//       center={{lat: +lat, lng: +lng}}
+//       onClick={() => setActiveMarker(null)}>
+//         {places.map(({location_code, location_type, name, address, latitude, longitude, distance}) => (
+//           <Marker
+//           position= {{lat: latitude, lng: longitude}}
+//           onClick={() => handleActiveMarker(location_code)}
+//           >
+//             {activeMarker === location_code ? (
+//             <InfoWindow
+//               onCloseClick={() => setActiveMarker(null)}>
+//                 <div className='infosindow_wrap' key={location_code}>
+//               <div className='infodindow'>
+//                 <div className='info_title'>
+//                 <div className='d-flex align-items-center'>
+//                   <h5 className='fw-bold'>{name}</h5>
+//                   <div className='placeType'>{location_type}</div>
+//                 </div>
+//                   <div className='placeDist'>{distance}</div>
+//                 </div>
+//                 <div className='info_etc'>
+//                 <div className='placeAddr'>{address}</div>
+//                   <div className='placeIcon'>
+//                     <img src={slopeImg}></img>
+//                     <img src={slopeImg}></img>
+//                     <img src={slopeImg}></img>
+//                     <img src={slopeImg}></img>
+//                   </div>
+//                 </div>
+//               </div>
+//               <div className='infowindow_anchor'></div>
+//             </div>
+//             </InfoWindow>
+//             ) : null}
+//           </Marker>
+//         ))}
+//       </GoogleMap>
+//   }
+
       center={{lat: +lat, lng: +lng}}>       
       <div className='filterBtnCont'>      
         <div onClick={() => setCategory("icon1")}>장애인 화장실</div>
@@ -114,4 +161,4 @@ function MapPage() {
   )
 }
 
-export default MapPage
+export default MapPage;
