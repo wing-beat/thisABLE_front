@@ -117,10 +117,12 @@ function MapPage() {
           onClick={() => handleActiveMarker(place.location_code)}
           >
           {activeMarker === place.location_code ? (
+            
             <InfoWindow
               onCloseClick={() => setActiveMarker(null)}>
                 {PlaceInfo(place)}
             </InfoWindow>
+            
           ) : null}
         </Marker>
       ))
