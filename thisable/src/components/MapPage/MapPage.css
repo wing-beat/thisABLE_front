@@ -1,3 +1,11 @@
+.btnCont {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .filterBtnCont {
     margin-top: 10px;
     display: flex;
@@ -17,3 +25,18 @@
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
 }
 
+@media screen and (max-width: 768px) {    
+    .listViewBtn {
+        background-color: white;
+        display: flex;    
+        justify-content: center;
+        margin-bottom: 15px;
+        padding: 8px 22px;
+        width: 200px;
+        position: relative;
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 15px;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.7);
+    }
+}

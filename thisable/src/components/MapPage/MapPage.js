@@ -67,7 +67,7 @@ import PlaceInfo from './PlaceInfo';
 function MapPage() {
   
   const mapStyle = {
-    height: "22.4rem",
+    height: "100vh",
     width: "100%"
   }
 
@@ -91,12 +91,15 @@ function MapPage() {
       zoom={18}      
       center={{lat: +lat, lng: +lng}}
       onClick={() => setActiveMarker(null)}>   
-      <div className='filterBtnCont'>      
-        <div onClick={() => setCategory("icon1")}>장애인 화장실</div>
-        <div onClick={() => setCategory("icon2")}>휠체어 충전기</div>        
-        <div onClick={() => setCategory("icon3")}>엘리베이터</div>        
-        <div onClick={() => setCategory("icon4")}>슬로프</div>        
-        <div onClick={() => setCategory("")}>모두 보기</div>        
+      <div className='btnCont'>
+        <div className='filterBtnCont'>      
+          <div onClick={() => setCategory("icon1")}>장애인 화장실</div>
+          <div onClick={() => setCategory("icon2")}>휠체어 충전기</div>        
+          <div onClick={() => setCategory("icon3")}>엘리베이터</div>        
+          <div onClick={() => setCategory("icon4")}>슬로프</div>        
+          <div onClick={() => setCategory("")}>모두 보기</div>        
+        </div>
+        <div className='listViewBtn'>리스트 보기</div>
       </div>
       {renderMarker}
     </GoogleMap>

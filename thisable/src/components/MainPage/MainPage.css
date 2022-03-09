@@ -1,9 +1,22 @@
+/* MainPage */
+.MainPage {
+    display: flex;
+}
+
+@media screen and (max-width: 768px) {
+    .MainPageList {
+        display: none;
+    }
+}
+
+/* MainPageList */
 .PlaceListContainer {
     border: 2px solid #E599B3;
     box-sizing: border-box;
     border-radius: 10px;
     margin: 15px 20px;
     padding: 15px;
+    min-width: 300px;
 }
 .placeType {
     font-size: 0.9rem;
