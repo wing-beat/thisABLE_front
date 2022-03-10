@@ -2,6 +2,7 @@ import React, {useContext, useState} from 'react';
 import slopeImg from '../../assets/images/slope.svg';
 import './DetailPage.css';
 import { Accordion, AccordionContext, Card, useAccordionButton } from 'react-bootstrap';
+import MapPage from '../MapPage/MapPage';
 
 function CustomToggle({ children, eventKey, callback }) {
   const [message, setMessage] = useState('▶')
@@ -79,6 +80,7 @@ function DetailPage() {
       badhelp: "22",
     },
   ]
+
 
   return (
     <div className='maincontainer'>
@@ -188,6 +190,7 @@ function DetailPage() {
         </div>
       </div>
     </div>
+    <MapPage />
     </div>
   )
 }
