@@ -4,11 +4,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import DetailPage from './components/DetailPage/DetailPage';
 import MainPage from './components/MainPage/MainPage';
 import MapPage from './components/MapPage/MapPage';
+import NavBar from './components/NavBar/NavBar';
+
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      {/* <NavBar/> */}
+      <NavBar/>
         <div>        
           <Routes>
             <Route exact path="/" element={<MainPage />}></Route>
