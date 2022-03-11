@@ -1,6 +1,7 @@
 import React from 'react'
 import './MainPage.css'
 import slopeImg from '../../assets/images/slope.svg'
+import PlaceInfo from '../MapPage/PlaceInfo';
 
 function MainPageList() {
   const places = [
@@ -47,20 +48,7 @@ function MainPageList() {
   const renderPlaces = places && places.map(place => {
     return (
       <div className='PlaceListContainer' key={place.location_code}>
-        <div className='d-flex justify-content-between '>
-          <div className='d-flex align-items-center'>
-            <h5 className='fw-bold'>{place.name}</h5>
-            <div className='placeType'>{place.location_type}</div>
-          </div>
-          <div className='placeDist'>{place.distance}</div>
-        </div>
-        <div className='placeAddr'>{place.address}</div>
-        <div className='placeIcon'>
-          <img src={slopeImg}></img>
-          <img src={slopeImg}></img>
-          <img src={slopeImg}></img>
-          <img src={slopeImg}></img>
-        </div>
+        {PlaceInfo(place)}
       </div>
     )
   })

@@ -20,7 +20,7 @@
 }
 .placeType {
     font-size: 0.9rem;
-    margin-left: 10px;    
+    margin: 0 10px;    
     color: #727272;
 }
 .placeDist {
