@@ -86,10 +86,10 @@ function DetailPage() {
     <div className='maincontainer'>
     <div className='placedetail'>
       <div className="placenametype">
-      <h5 className='placename'>공룡도배부른안심탕수육 구의점</h5>
-      <div className='placetype'>음식점</div>
+      <h5 className='placename'>{place.name}</h5>
+      <div className='placetype'>{place.location_type}</div>
       </div>
-      <div className='placeaddress'>서울특별시 용산구 청파로 43길 70 지층 몬스터플레이스 서울특별시 용산구 청파로 43길 70 지층 몬스터플레이스</div>
+      <div className='placeaddress'>{place.address}</div>
       <div className='placerate'>★★★☆☆ (1023)</div>
       <div className='placeiconlist'>
         <div className='placeicon'>
