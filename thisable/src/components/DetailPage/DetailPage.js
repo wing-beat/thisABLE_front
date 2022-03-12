@@ -1,30 +1,12 @@
-import React, {useContext, useState} from 'react';
+import React from 'react';
 import slopeImg from '../../assets/images/slope.svg';
 import './DetailPage.css';
-import { Accordion, AccordionContext, Card, useAccordionButton } from 'react-bootstrap';
 import MapPage from '../MapPage/MapPage';
 import ReviewPage from './ReviewPage';
-
-function CustomToggle({ children, eventKey, callback }) {
-  const [message, setMessage] = useState('▶')
-  const {activeEventKey} = useContext(AccordionContext);
-  const isCurrentEventKey = activeEventKey === eventKey;
-
-  const decoratedOnClick = useAccordionButton(eventKey, () =>
-    setMessage(prev => prev === "▶" ? "▼" : "▶"));
-  return (
-    <button
-      type='button'
-      onClick={decoratedOnClick}
-      className="customtoggle">
-      {message}{children}
-    </button>
-  );
-}
-
+import ToggleView from './ToggleView';
 
 function DetailPage() {
-  const place = [
+  const place = 
     {
       location_code: "123",
       location_type: "음식점",
@@ -61,8 +43,7 @@ function DetailPage() {
         value3: "09:00 ~ 18:00",
         value4: "09:00 ~ 18:00",
       },
-    }
-  ];
+    };
 
 
   return (
@@ -95,52 +76,11 @@ function DetailPage() {
       </div>
       
       <div className='togglelist'>
-      <Accordion defaultActiveKey={['0']}>
-      <Card>
-          <CustomToggle eventKey="1"> 장애인 화장실 상세정보 보기</CustomToggle>
-        <Accordion.Collapse eventKey="1">
-        <div className='toggle'>
-            <div className='togglekey'>
-              설치장소설명<br/>
-              평일운영시간<br/>
-              토요일운영시간<br/>
-              공휴일운영시간
-            </div>
-            <div className='togglevalue'>
-              센터1층<br/>
-              09:00 ~ 18:00<br/>
-              09:00 ~ 18:00<br/>
-              09:00 ~ 18:00
-            </div>
-            </div>
-        </Accordion.Collapse>
-      </Card>
-      </Accordion>
-      <Accordion defaultActiveKey={['0']}>
-      <Card>
-          <CustomToggle eventKey="1"> 휠체어 충전기 상세정보 보기</CustomToggle>
-        <Accordion.Collapse eventKey="1">
-        <div className='toggle'>
-            <div className='togglekey'>
-              설치장소설명<br/>
-              평일운영시간<br/>
-              토요일운영시간<br/>
-              공휴일운영시간
-            </div>
-            <div className='togglevalue'>
-              센터1층<br/>
-              09:00 ~ 18:00<br/>
-              09:00 ~ 18:00<br/>
-              09:00 ~ 18:00
-            </div>
-            </div>
-        </Accordion.Collapse>
-      </Card>
-      </Accordion>
+        <ToggleView />
       </div>
 
     
-    <ReviewPage /> 
+    {/* <ReviewPage />  */}
     </div>
   )
 }
