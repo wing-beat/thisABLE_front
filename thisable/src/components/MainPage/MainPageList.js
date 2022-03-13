@@ -2,6 +2,7 @@ import React from 'react'
 import './MainPage.css'
 import slopeImg from '../../assets/images/slope.svg'
 import PlaceInfo from '../MapPage/PlaceInfo';
+import PaginationView from './PaginationView';
 
 function MainPageList() {
   const places = {
@@ -60,6 +61,7 @@ function MainPageList() {
   return (
     <div>
       {renderPlaces}
+      {PaginationView(places) }
     </div>
   )
 }
