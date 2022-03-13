@@ -58,10 +58,15 @@ function MainPageList() {
       </div>      
     )
   })
+
+  const handleCallback = (changedPage) => {
+    console.log("넘어온 페이지네이션 페이지", changedPage)
+  }
+
   return (
-    <div>
+    <div>      
       {renderPlaces}
-      {PaginationView(places) }
+      <PaginationView page={places} handleCallback={handleCallback} />
     </div>
   )
 }
