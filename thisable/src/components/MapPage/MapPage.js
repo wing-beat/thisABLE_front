@@ -6,9 +6,6 @@ import slopeImg from '../../assets/images/slope.svg'
 import './MapPage.css'
 import PlaceInfo from './PlaceInfo';
 
-  const lat = 37.544127
-  const lng = 126.9667812
-
   const places = [
     {      
       location_code: "123",
@@ -65,7 +62,22 @@ import PlaceInfo from './PlaceInfo';
   ];
 
 function MapPage() {
+
+  const [lat, setLat] = useState(null);
+  const [lng, setLng] = useState(null);
   
+  if (!navigator.geolocation) {
+    console.log('Geolocation is not supported by your browser');
+  } else {
+    console.log('Locating...');
+    navigator.geolocation.getCurrentPosition((position) => {
+      setLat(position.coords.latitude);
+      setLng(position.coords.longitude);
+      console.log("lat:",lat,"lng:",lng)
+    }, () => {
+      console.log('Unable to retrieve your location');
+    });
+  }
   const mapStyle = {
     height: "100vh",
     width: "100%"
@@ -102,6 +114,9 @@ function MapPage() {
         <div className='listViewBtn'>리스트 보기</div>
       </div>
       {renderMarker}
+      <Marker position={{lat: +lat, lng:+lng}}>
+      <InfoWindow><p>현재 위치입니다</p></InfoWindow>
+      </Marker>
     </GoogleMap>
   }
 
