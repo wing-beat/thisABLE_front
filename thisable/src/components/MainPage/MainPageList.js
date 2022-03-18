@@ -3,6 +3,7 @@ import './MainPage.css'
 import slopeImg from '../../assets/images/slope.svg'
 import PlaceInfo from '../MapPage/PlaceInfo';
 import PaginationView from './PaginationView';
+import { Outlet } from 'react-router-dom';
 
 function MainPageList() {
   const places = {
@@ -67,6 +68,7 @@ function MainPageList() {
     <div>      
       {renderPlaces}
       <PaginationView page={places} handleCallback={handleCallback} />
+      <Outlet />
     </div>
   )
 }
