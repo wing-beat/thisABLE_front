@@ -114,9 +114,7 @@ function MapPage() {
         <div className='listViewBtn'>리스트 보기</div>
       </div>
       {renderMarker}
-      <Marker position={{lat: +lat, lng:+lng}}>
-      <InfoWindow><p>현재 위치입니다</p></InfoWindow>
-      </Marker>
+      <Marker position={{lat: +lat, lng:+lng}} />
     </GoogleMap>
   }
 
