@@ -5,6 +5,7 @@ import {geolocated} from "react-geolocated";
 import slopeImg from '../../assets/images/slope.svg'
 import './MapPage.css'
 import PlaceInfo from './PlaceInfo';
+import { Link } from 'react-router-dom';
 
   const lat = 37.544127
   const lng = 126.9667812
@@ -99,7 +100,9 @@ function MapPage() {
           <div onClick={() => setCategory("icon4")}>슬로프</div>        
           <div onClick={() => setCategory("")}>모두 보기</div>        
         </div>
-        <div className='listViewBtn'>리스트 보기</div>
+        <Link to="/" style ={{ textDecoration: "none", color: "black" }}>
+          <div className='listViewBtn'>리스트 보기</div>
+        </Link>
       </div>
       {renderMarker}
     </GoogleMap>

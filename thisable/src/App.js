@@ -15,7 +15,8 @@ function App() {
         <div>        
           <Routes>
             <Route exact path="/" element={<MainPage />}>
-              <Route path="/detail/:id" element={<DetailPage />}></Route>                  
+              <Route path="/detail/:id" element={<DetailPage />}></Route>
+              <Route path="/" element={<MainPageList />}></Route>            
             </Route>
             <Route path="/map" element={<MapPage />}></Route>            
           </Routes>
