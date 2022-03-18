@@ -7,9 +7,6 @@ import './MapPage.css'
 import PlaceInfo from './PlaceInfo';
 import { Link } from 'react-router-dom';
 
-  const lat = 37.544127
-  const lng = 126.9667812
-
   const places = [
     {      
       location_code: "123",
@@ -66,7 +63,22 @@ import { Link } from 'react-router-dom';
   ];
 
 function MapPage() {
+
+  const [lat, setLat] = useState(null);
+  const [lng, setLng] = useState(null);
   
+  if (!navigator.geolocation) {
+    console.log('Geolocation is not supported by your browser');
+  } else {
+    console.log('Locating...');
+    navigator.geolocation.getCurrentPosition((position) => {
+      setLat(position.coords.latitude);
+      setLng(position.coords.longitude);
+      console.log("lat:",lat,"lng:",lng)
+    }, () => {
+      console.log('Unable to retrieve your location');
+    });
+  }
   const mapStyle = {
     height: "100vh",
     width: "100%"
@@ -105,6 +117,7 @@ function MapPage() {
         </Link>
       </div>
       {renderMarker}
+      <Marker position={{lat: +lat, lng:+lng}} />
     </GoogleMap>
   }
 
