@@ -10,12 +10,15 @@ function MainPageList() {
   const baseUrl = process.env.REACT_APP_BASE_URL;
   
   const getData = async () => { 
-    const response = await axios.get(
+    await axios.get(
       baseUrl + "/?latitude=37.5441270&longitude=126.9667812&page=1"  
-    );
-    setPlaces(response.data)
-    console.log(response.data) 
-    console.log(response.data.results)
+    )
+    .then((response) => {
+      setPlaces(response.data)
+      console.log(response.data) 
+      console.log(response.data.results)
+    })
+    .catch((error)=>{console.log(error)})
   };  
   useEffect(() => {
     getData();
