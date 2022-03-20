@@ -1,55 +1,26 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import axios from 'axios';
 import './MainPage.css'
 import slopeImg from '../../assets/images/slope.svg'
 import PlaceInfo from '../MapPage/PlaceInfo';
 import PaginationView from './PaginationView';
 
 function MainPageList() {
-  const places = {
-    totalPage: 4,
-    currentPage: 1,
-    nextUrl: "?page=2",
-    results:[
-    {      
-      location_code: "123",
-      location_type: "음식점",
-      name: "몬플몬플 숙대점",
-      address: "서울특별시 용산구 청파동 청파로",
-      latitude: 37.544127,
-      longitude: 126.9667812,
-      distance: "0.5km",
-      icon1: true,
-      icon2: true,
-      icon3: false,
-      icon4: false
-    },
-    {
-      location_code: "123",
-      location_type: "음식점",
-      name: "육쌈냉면 숙대점",
-      address: "서울특별시 용산구 청파동 청파로",
-      latitude: 37.544127,
-      longitude: 126.9667812,
-      distance: "0.5km",
-      icon1: true,
-      icon2: true,
-      icon3: false,
-      icon4: false
-    },
-    {
-      location_code: "123",
-      location_type: "음식점",
-      name: "코피티암 숙대점",
-      address: "서울특별시 용산구 청파동 청파로",
-      latitude: 37.544127,
-      longitude: 126.9667812,
-      distance: "0.5km",
-      icon1: true,
-      icon2: true,
-      icon3: false,
-      icon4: false
-    }
-  ]};
+  const [places, setPlaces] = useState("")
+  const baseUrl = process.env.REACT_APP_BASE_URL;
+  
+  const getData = async () => { 
+    const response = await axios.get(
+      baseUrl + "/?latitude=37.5441270&longitude=126.9667812&page=1"  
+    );
+    setPlaces(response.data)
+    console.log(response.data) 
+    console.log(response.data.results)
+  };  
+  useEffect(() => {
+    getData();
+  }, []);
+
 
   const renderPlaces = places && places.results.map(place => {
     return (
