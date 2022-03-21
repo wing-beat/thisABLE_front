@@ -9,3 +9,12 @@ export const getPlaceList = () => {
       return response.data;
     });
 };
+
+export const getPlaceDetail = (id) => {
+  return axios
+    .get(baseUrl + "/" + id)
+    .then((response) => {
+      console.log(response.data)
+      return response.data;
+    });
+};
