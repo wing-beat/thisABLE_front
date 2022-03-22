@@ -1,5 +1,8 @@
 import React from 'react';
 import slopeImg from '../../assets/images/slope.svg';
+import chargerImg from '../../assets/images/charger.svg';
+import toiletImg from '../../assets/images/toilet.svg';
+import elevatorImg from '../../assets/images/elevator.svg';
 import './DetailPage.css';
 import MapPage from '../MapPage/MapPage';
 import ReviewPage from './ReviewPage';
@@ -57,20 +60,20 @@ function DetailPage() {
       <div className='placerate'>★★★☆☆ (1023)</div>
       <div className='placeiconlist'>
         <div className='placeicon'>
-        <img src={slopeImg}></img>
-        <div className='placeiconname'>아이콘 이름</div>
+        <img src={toiletImg}></img>
+        <div className='placeiconname'>장애인화장실</div>
+        </div>
+        <div className='placeicon'>
+        <img src={chargerImg}></img>
+        <div className='placeiconname'>휠체어충전기</div>
         </div>
         <div className='placeicon'>
         <img src={slopeImg}></img>
-        <div className='placeiconname'>아이콘 이름</div>
+        <div className='placeiconname'>슬로프</div>
         </div>
         <div className='placeicon'>
-        <img src={slopeImg}></img>
-        <div className='placeiconname'>아이콘 이름</div>
-        </div>
-        <div className='placeicon'>
-        <img src={slopeImg}></img>
-        <div className='placeiconname'>아이콘 이름</div>
+        <img src={elevatorImg}></img>
+        <div className='placeiconname'>엘리베이터</div>
         </div>
       </div>
       </div>
@@ -80,7 +83,7 @@ function DetailPage() {
       </div>
 
     
-    {/* <ReviewPage />  */}
+    <ReviewPage locationId={place.location_code}/>
     </div>
   )
 }
