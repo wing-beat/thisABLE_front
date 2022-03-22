@@ -18,3 +18,11 @@ export const getPlaceDetail = (id) => {
       return response.data;
     });
 };
+
+export const getPlaceDetailCharger = (id) => {
+  return axios
+    .get(baseUrl + "/" + id + "/charger")
+    .then((response) => {
+      return response.data;
+    });
+};

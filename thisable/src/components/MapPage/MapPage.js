@@ -89,9 +89,9 @@ function MapPage() {
       .map((place) => (
           <Marker
           position= {{lat: place.latitude, lng: place.longitude}}
-          onClick={() => handleActiveMarker(place.googlePlaceId)}
+          onClick={() => handleActiveMarker(place._id)}
           >
-          {activeMarker === place.googlePlaceId ? (
+          {activeMarker === place._id ? (
             
             <InfoWindow
               onCloseClick={() => setActiveMarker(null)}>
