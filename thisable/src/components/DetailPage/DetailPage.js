@@ -61,7 +61,7 @@ function DetailPage() {
         <ToggleView />
       </div>
 
-      <ReviewPage locationId={place.location_code} />
+      <ReviewPage locationId={id} />
     </div>
   );
 }
