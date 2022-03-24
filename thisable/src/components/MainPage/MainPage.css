@@ -3,6 +3,12 @@
   display: flex;
 }
 
+.MainPageList {
+  overflow: initial;
+  height: 94vh;
+  min-width: 380px;
+}
+
 @media screen and (max-width: 768px) {
   .MainPageList {
     display: none;
@@ -37,7 +43,6 @@
   justify-content: flex-end;
 }
 .placeIcon > img {
-    margin-right: 5px;
-    width: 35px;
+  margin-right: 5px;
+  width: 35px;
 }
-

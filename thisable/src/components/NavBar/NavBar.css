@@ -1,6 +1,6 @@
 .navBar {
   font-weight: bold;
-  height: 4rem;
+  height: 3.5rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -8,9 +8,6 @@
   border-color: lightgray;
   border-style: solid;
   justify-content: flex-start;
-}
-
-.nav-div {
 }
 
 .nav-container {
@@ -75,5 +72,5 @@
   font-size: 1.4rem;
   padding: 2.5rem;
   line-height: 270%;
-  align: center;
+  align-items: center;
 }
