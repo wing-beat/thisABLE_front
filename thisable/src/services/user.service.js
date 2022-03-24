@@ -26,3 +26,43 @@ export const getPlaceDetailCharger = (id) => {
       return response.data;
     });
 };
+
+export const getReview = (id) => {
+  return axios
+    .get(baseUrl + "/" + id + "/review")
+    .then((response) => {
+      return response.data;
+    });
+};
+
+export const postReview = (locationId, detail, stare) => {
+  return axios
+    .post(baseUrl + "/review", {
+      locationId: locationId,
+      detail: detail,
+      stare: stare
+    })
+    .then((response) => {
+      return response.data;
+    });
+};
+
+export const postReviewRecommend = (reviewId) => {
+  return axios
+    .post(baseUrl + "/review/recommend", {
+      reviewId: reviewId
+    })
+    .then((response) => {
+      return response.data;
+    });
+};
+
+export const postReviewDiscourage = (reviewId) => {
+  return axios
+    .post(baseUrl + "/review/discourage", {
+      reviewId: reviewId
+    })
+    .then((response) => {
+      return response.data;
+    });
+};
