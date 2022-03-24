@@ -1,79 +1,79 @@
 .navBar {
-    font-weight: bold;
-    height: 4rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    border-bottom: 0.1rem;
-    border-color: lightgray;
-    border-style: solid;
-    justify-content: flex-start;
-  }
+  font-weight: bold;
+  height: 4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 0.1rem;
+  border-color: lightgray;
+  border-style: solid;
+  justify-content: flex-start;
+}
 
-  .nav-div {
-  }
+.nav-div {
+}
 
-  .nav-container {
-    display: flex;
-    justify-content: flex-start;
-  }
+.nav-container {
+  display: flex;
+  justify-content: flex-start;
+}
 
-  .nav-logo-container {
-    display: flex;
-  }
+.nav-logo-container {
+  display: flex;
+}
 
-  .nav-logo {
-    position: relative;
-    width: 60px;
-    left: 0px;
-    background-size: contain;
-    float: left;
-  }
+.nav-logo {
+  position: relative;
+  width: 60px;
+  left: 0px;
+  background-size: contain;
+  float: left;
+}
 
-  .nav-logotext {
-    position: relative;
-    width: 100px;
-    left: 0px;
-    margin-top: 15px;
-    background-size: contain;
-    float: left; 
-  }
+.nav-logotext {
+  position: relative;
+  width: 100px;
+  left: 0px;
+  margin-top: 15px;
+  background-size: contain;
+  float: left;
+}
 
-  .nav-name {
-    position: relative;
-    color: black !important;
-    text-decoration: none;
-    font-size: 1.4rem;
-    line-height: 270%;
-    float: left;
-    margin-right: 1rem;
-    margin-left: 1rem;
-  }
+.nav-name {
+  position: relative;
+  color: black !important;
+  text-decoration: none;
+  font-size: 1.4rem;
+  line-height: 270%;
+  float: left;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
 
-  .nav-button {
-      text-decoration: none;
-      font-size: 15px;
-      color: black;
-      float: left;
-      margin-right: 1rem;
-      margin-left: 1rem;
-  }
+.nav-button {
+  text-decoration: none;
+  font-size: 15px;
+  color: black;
+  float: left;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
 
-  .nav-right {
-      float: right;
-      font-size: 1rem;
-      color: black;
-      line-height: 300%;
-      margin: left 1rem;
-      margin-right: 1rem;
-      margin-top: 0.3rem;
-  }
-  
-  .nav-link {
-    color: black !important;
-    text-decoration: none;
-    font-size: 1.4rem;
-    padding: 2.5rem;
-    line-height: 270%;
-    align: center;
-  }
+.nav-right {
+  float: right;
+  font-size: 1rem;
+  color: black;
+  line-height: 300%;
+  margin: left 1rem;
+  margin-right: 1rem;
+  margin-top: 0.3rem;
+}
+
+.nav-link {
+  color: black !important;
+  text-decoration: none;
+  font-size: 1.4rem;
+  padding: 2.5rem;
+  line-height: 270%;
+  align: center;
+}
