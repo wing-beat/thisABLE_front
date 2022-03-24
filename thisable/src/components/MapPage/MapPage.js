@@ -2,10 +2,14 @@ import React, {useEffect, useState} from 'react'
 import { GoogleMap, LoadScript, Marker, InfoWindow, useJsApiLoader } from '@react-google-maps/api';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {geolocated} from "react-geolocated";
-import slopeImg from '../../assets/images/slope.svg'
 import './MapPage.css'
 import PlaceInfo from './PlaceInfo';
 import { Link } from 'react-router-dom';
+import slopeImg from '../../assets/images/slope.svg';
+import chargerImg from '../../assets/images/charger.svg';
+import toiletImg from '../../assets/images/toilet.svg';
+import elevatorImg from '../../assets/images/elevator.svg';
+
 
   const places = [
     {      
@@ -106,10 +110,10 @@ function MapPage() {
       onClick={() => setActiveMarker(null)}>   
       <div className='btnCont'>
         <div className='filterBtnCont'>      
-          <div onClick={() => setCategory("icon1")}>장애인 화장실</div>
-          <div onClick={() => setCategory("icon2")}>휠체어 충전기</div>        
-          <div onClick={() => setCategory("icon3")}>엘리베이터</div>        
-          <div onClick={() => setCategory("icon4")}>슬로프</div>        
+          <div onClick={() => setCategory("icon1")}><img width={20} style={{marginRight:"0.5rem"}} src={toiletImg}></img>장애인 화장실</div>
+          <div onClick={() => setCategory("icon2")}><img width={20} style={{marginRight:"0.5rem"}} src={chargerImg}></img>휠체어 충전기</div>        
+          <div onClick={() => setCategory("icon3")}><img width={20} style={{marginRight:"0.5rem"}} src={elevatorImg}></img>엘리베이터</div>        
+          <div onClick={() => setCategory("icon4")}><img width={20} style={{marginRight:"0.5rem"}} src={slopeImg}></img>슬로프</div>        
           <div onClick={() => setCategory("")}>모두 보기</div>        
         </div>
         <Link to="/" style ={{ textDecoration: "none", color: "black" }}>
