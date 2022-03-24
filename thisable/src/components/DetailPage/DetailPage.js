@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import slopeImg from '../../assets/images/slope.svg';
 import './DetailPage.css';
 import MapPage from '../MapPage/MapPage';
@@ -10,9 +11,10 @@ function DetailPage() {
 
   const [place, setPlace] = useState("")
 
+  let { id } = useParams();
+
   useEffect(async () => {
-    //  TODO: 디테일 바로밑에 저거 함수에 아이디값 받아와서 넣기
-    const detail = await getPlaceDetail();
+    const detail = await getPlaceDetail(id);
     setPlace(detail.response)
   }, []);  
 

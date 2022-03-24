@@ -1,4 +1,5 @@
 import React, {useContext, useState, useEffect} from 'react'
+import { useParams } from 'react-router-dom';
 import { Accordion, AccordionContext, Card, useAccordionButton } from 'react-bootstrap';
 import { getPlaceDetailCharger } from '../../services/user.service';
 
@@ -23,8 +24,10 @@ function ToggleView() {
 
   const [charger, setCharger] = useState([])
 
+  let { id } = useParams();
+
   useEffect(async () => {
-    const chargerInfo = await getPlaceDetailCharger();
+    const chargerInfo = await getPlaceDetailCharger(id);
     setCharger(chargerInfo.data)
   }, []);
 
