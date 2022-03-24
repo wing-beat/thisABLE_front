@@ -1,17 +1,17 @@
-import React from 'react'
-import MapPage from '../MapPage/MapPage'
-import "./MainPage.css"
-import { Outlet } from 'react-router-dom'
+import React from "react";
+import { Outlet } from "react-router-dom";
+import MapPage from "../MapPage/MapPage";
+import "./MainPage.css";
 
 function MainPage() {
   return (
-    <div className='MainPage'>
+    <div className="MainPage">
       <MapPage />
-      <div className="MainPageList" >
+      <div className="MainPageList">
         <Outlet />
       </div>
     </div>
-  )
+  );
 }
 
-export default MainPage
+export default MainPage;

@@ -1,96 +1,48 @@
-import React, {useEffect, useState} from 'react'
-import { GoogleMap, LoadScript, Marker, InfoWindow, useJsApiLoader } from '@react-google-maps/api';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import {geolocated} from "react-geolocated";
-import './MapPage.css'
-import PlaceInfo from './PlaceInfo';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import {
+  GoogleMap,
+  Marker,
+  InfoWindow,
+  useJsApiLoader,
+} from "@react-google-maps/api";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import { Link } from "react-router-dom";
+import { getPlaceList } from "../../services/user.service";
+import PlaceInfo from "./PlaceInfo";
+import "./MapPage.css";
 import slopeImg from '../../assets/images/slope.svg';
 import chargerImg from '../../assets/images/charger.svg';
 import toiletImg from '../../assets/images/toilet.svg';
 import elevatorImg from '../../assets/images/elevator.svg';
 
-
-  const places = [
-    {      
-      location_code: "123",
-      location_type: "음식점",
-      name: "맛있는 거 먹고 싶다 숙대점",
-      address: "서울특별시 용산구 청파동 청파로",
-      latitude: 37.544127,
-      longitude: 126.9667812,
-      distance: "0.5km",
-      icon1: true,
-      icon2: false,
-      icon3: true,
-      icon4: false
-    },
-    {
-      location_code: "124",
-      location_type: "음식점",
-      name: "몬스터플레이스 숙대점",
-      address: "서울특별시 용산구 청파동 청파로",
-      latitude: 37.54442234376629,
-      longitude: 126.96686963681883,
-      distance: "0.5km",
-      icon1: true,
-      icon2: false,
-      icon3: false,
-      icon4: true
-    },
-    {
-      location_code: "125",
-      location_type: "음식점",
-      name: "육쌈냉면 숙대점",
-      address: "서울특별시 용산구 청파동 청파로",
-      latitude: 37.544928,
-      longitude: 126.967381,
-      distance: "0.5km",
-      icon1: false,
-      icon2: true,
-      icon3: false,
-      icon4: true
-    },
-    {
-      location_code: "126",
-      location_type: "음식점",
-      name: "에이그레이트 숙대점",
-      address: "서울특별시 용산구 청파동 청파로",
-      latitude: 37.544655335413886,
-      longitude: 126.9669056190536,
-      distance: "0.5km",
-      icon1: false,
-      icon2: true,
-      icon3: true,
-      icon4: true
-    }
-  ];
-
 function MapPage() {
-
   const [lat, setLat] = useState(null);
   const [lng, setLng] = useState(null);
-  
+  const [places, setPlaces] = useState("");
+
   if (!navigator.geolocation) {
-    console.log('Geolocation is not supported by your browser');
+    console.log("Geolocation is not supported by your browser");
   } else {
-    console.log('Locating...');
-    navigator.geolocation.watchPosition((position) => {
-      setLat(position.coords.latitude);
-      setLng(position.coords.longitude);
-      console.log("lat:",lat,"lng:",lng)
-    }, () => {
-      console.log('Unable to retrieve your location');
-    });
+    console.log("Locating...");
+    navigator.geolocation.watchPosition(
+      (position) => {
+        setLat(position.coords.latitude);
+        setLng(position.coords.longitude);
+        console.log("lat:", lat, "lng:", lng);
+      },
+      () => {
+        console.log("Unable to retrieve your location");
+      }
+    );
   }
   const mapStyle = {
     height: "100vh",
-    width: "100%"
-  }
+    width: "100%",
+  };
 
-  const {isLoaded} = useJsApiLoader({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API
-  })
+  const { isLoaded } = useJsApiLoader({
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API,
+  });
 
   const [activeMarker, setActiveMarker] = useState(null);
   const [category, setCategory] = useState("");
@@ -100,59 +52,75 @@ function MapPage() {
       return;
     }
     setActiveMarker(marker);
-  };  
+  };
+
+  useEffect(async () => {
+    const list = await getPlaceList();
+    setPlaces(list.results);
+  }, []);
 
   const renderMap = () => {
-    return <GoogleMap
-      mapContainerStyle={mapStyle}
-      zoom={18}      
-      center={{lat: +lat, lng: +lng}}
-      onClick={() => setActiveMarker(null)}>   
-      <div className='btnCont'>
-        <div className='filterBtnCont'>      
+    return (
+      <GoogleMap
+        mapContainerStyle={mapStyle}
+        zoom={18}
+        center={{ lat: +lat, lng: +lng }}
+        onClick={() => setActiveMarker(null)}
+      >
+        {renderBtn()}
+        {renderMarker}
+        <Marker position={{ lat: +lat, lng: +lng }} />
+      </GoogleMap>
+    );
+  };
+
+  const renderBtn = () => {
+    return (
+      <div className="btnCont">
+        <div className="filterBtnCont">
           <div onClick={() => setCategory("icon1")}><img width={20} style={{marginRight:"0.5rem"}} src={toiletImg}></img>장애인 화장실</div>
           <div onClick={() => setCategory("icon2")}><img width={20} style={{marginRight:"0.5rem"}} src={chargerImg}></img>휠체어 충전기</div>        
           <div onClick={() => setCategory("icon3")}><img width={20} style={{marginRight:"0.5rem"}} src={elevatorImg}></img>엘리베이터</div>        
-          <div onClick={() => setCategory("icon4")}><img width={20} style={{marginRight:"0.5rem"}} src={slopeImg}></img>슬로프</div>        
-          <div onClick={() => setCategory("")}>모두 보기</div>        
+          <div onClick={() => setCategory("icon4")}><img width={20} style={{marginRight:"0.5rem"}} src={slopeImg}></img>슬로프</div>    
+          <div onClick={() => setCategory("")}>모두 보기</div>
         </div>
-        <Link to="/" style ={{ textDecoration: "none", color: "black" }}>
-          <div className='listViewBtn'>리스트 보기</div>
+        <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+          <div className="listViewBtn">리스트 보기</div>
         </Link>
       </div>
-      {renderMarker}
-      <Marker position={{lat: +lat, lng:+lng}} />
-    </GoogleMap>
-  }
+    );
+  };
 
   const renderMarker =
-    places && places
+    places &&
+    places
       .filter((info) => {
-        if (category == "icon1") { return info.icon1 } 
-        else if (category == "icon2") { return info.icon2 }         
-        else if (category == "icon3") { return info.icon3 }         
-        else if (category == "icon4") { return info.icon4 }         
-        else { return true }
-      })  
+        if (category == "icon1") {
+          return info.isToiletExists;
+        } else if (category == "icon2") {
+          return info.isChargerExists;
+        } else if (category == "icon3") {
+          return info.isElevatorExists;
+        } else if (category == "icon4") {
+          return info.isSlopeExists;
+        } else {
+          return true;
+        }
+      })
       .map((place) => (
-          <Marker
-          position= {{lat: place.latitude, lng: place.longitude}}
-          onClick={() => handleActiveMarker(place.location_code)}
-          >
-          {activeMarker === place.location_code ? (
-            
-            <InfoWindow
-              onCloseClick={() => setActiveMarker(null)}>
-                {PlaceInfo(place)}
+        <Marker
+          position={{ lat: place.latitude, lng: place.longitude }}
+          onClick={() => handleActiveMarker(place._id)}
+        >
+          {activeMarker === place._id ? (
+            <InfoWindow onCloseClick={() => setActiveMarker(null)}>
+              {PlaceInfo(place)}
             </InfoWindow>
-            
           ) : null}
         </Marker>
-      ))
+      ));
 
-  return (
-    isLoaded ? renderMap() : <CircularProgress />    
-  )
+  return isLoaded ? renderMap() : <CircularProgress />;
 }
 
 export default MapPage;
