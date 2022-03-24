@@ -11,28 +11,21 @@ export const getPlaceList = () => {
 };
 
 export const getPlaceDetail = (id) => {
-  return axios
-    .get(baseUrl + "/" + id)
-    .then((response) => {
-      console.log(response.data)
-      return response.data;
-    });
+  return axios.get(baseUrl + "/" + id).then((response) => {
+    return response.data;
+  });
 };
 
 export const getPlaceDetailCharger = (id) => {
-  return axios
-    .get(baseUrl + "/" + id + "/charger")
-    .then((response) => {
-      return response.data;
-    });
+  return axios.get(baseUrl + "/" + id + "/charger").then((response) => {
+    return response.data;
+  });
 };
 
 export const getReview = (id) => {
-  return axios
-    .get(baseUrl + "/" + id + "/review")
-    .then((response) => {
-      return response.data;
-    });
+  return axios.get(baseUrl + "/" + id + "/review").then((response) => {
+    return response.data;
+  });
 };
 
 export const postReview = (locationId, detail, stare) => {
@@ -40,7 +33,7 @@ export const postReview = (locationId, detail, stare) => {
     .post(baseUrl + "/review", {
       locationId: locationId,
       detail: detail,
-      stare: stare
+      stare: stare,
     })
     .then((response) => {
       return response.data;
@@ -50,7 +43,7 @@ export const postReview = (locationId, detail, stare) => {
 export const postReviewRecommend = (reviewId) => {
   return axios
     .post(baseUrl + "/review/recommend", {
-      reviewId: reviewId
+      reviewId: reviewId,
     })
     .then((response) => {
       return response.data;
@@ -60,7 +53,7 @@ export const postReviewRecommend = (reviewId) => {
 export const postReviewDiscourage = (reviewId) => {
   return axios
     .post(baseUrl + "/review/discourage", {
-      reviewId: reviewId
+      reviewId: reviewId,
     })
     .then((response) => {
       return response.data;
