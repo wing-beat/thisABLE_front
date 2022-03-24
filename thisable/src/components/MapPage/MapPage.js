@@ -16,7 +16,7 @@ function MapPage() {
     console.log('Geolocation is not supported by your browser');
   } else {
     console.log('Locating...');
-    navigator.geolocation.getCurrentPosition((position) => {
+    navigator.geolocation.watchPosition((position) => {
       setLat(position.coords.latitude);
       setLng(position.coords.longitude);
       console.log("lat:",lat,"lng:",lng)

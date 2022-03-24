@@ -1,14 +1,18 @@
 import React from 'react';
 import { Navbar, Nav, Container } from "react-bootstrap";
 import "./NavBar.css";
+import logoimg from "../../assets/images/logo.svg";
 
 function NavBar() {
     return (
       <div className="nav-div">
         <Navbar className="navBar">
-          
             <Nav className="nav-logo-container" href="/">
-              <div className='nav-name'>thisABLE</div>
+              <img
+                className=''
+                alt='logo'
+                src={logoimg} 
+              ></img>
             </Nav>
             <Nav className="nav-button">
               <Nav.Link href="/">즐겨찾기</Nav.Link>

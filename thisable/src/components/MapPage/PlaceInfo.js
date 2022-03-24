@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import slopeImg from '../../assets/images/slope.svg'
+import slopeImg from '../../assets/images/slope.svg';
+import chargerImg from '../../assets/images/charger.svg';
+import toiletImg from '../../assets/images/toilet.svg';
+import elevatorImg from '../../assets/images/elevator.svg';
 import './MapPage.css'
 
 const PlaceInfo = (place) => {  
@@ -18,9 +21,9 @@ const PlaceInfo = (place) => {
         </div>        
         <div className='placeAddr'>{place.address}</div>
         <div className='placeIcon'>
-          {place.isToiletExists && (<img src={slopeImg}></img>)}
-          {place.isChargerExists && (<img src={slopeImg}></img>)}
-          {place.isElevatorExists && (<img src={slopeImg}></img>)}
+          {place.isToiletExists && (<img src={toiletImg}></img>)}
+          {place.isChargerExists && (<img src={chargerImg}></img>)}
+          {place.isElevatorExists && (<img src={elevatorImg}></img>)}
           {place.isSlopeExists && (<img src={slopeImg}></img>)}
         </div>
       </div>

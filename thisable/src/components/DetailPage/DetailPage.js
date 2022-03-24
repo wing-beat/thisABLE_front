@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import slopeImg from '../../assets/images/slope.svg';
+import chargerImg from '../../assets/images/charger.svg';
+import toiletImg from '../../assets/images/toilet.svg';
+import elevatorImg from '../../assets/images/elevator.svg';
 import './DetailPage.css';
 import MapPage from '../MapPage/MapPage';
 import ReviewPage from './ReviewPage';
@@ -30,19 +33,19 @@ function DetailPage() {
       <div className='placeiconlist'>
         {place.isToiletExists && (
             <div className="placeicon">
-              <img src={slopeImg}></img>
+              <img src={toiletImg}></img>
               <div className="placeiconname">장애인 화장실</div>
             </div>
           )}
           {place.isChargerExists && (
             <div className="placeicon">
-              <img src={slopeImg}></img>
+              <img src={chargerImg}></img>
               <div className="placeiconname">휠체어 충전기</div>
             </div>
           )}
           {place.isElevatorExists && (
             <div className="placeicon">
-              <img src={slopeImg}></img>
+              <img src={elevatorImg}></img>
               <div className="placeiconname">엘리베이터</div>
             </div>
           )}
@@ -60,7 +63,7 @@ function DetailPage() {
       </div>
 
     
-    {/* <ReviewPage />  */}
+    <ReviewPage locationId={place.location_code}/>
     </div>
   )
 }
