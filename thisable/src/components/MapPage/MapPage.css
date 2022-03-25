@@ -1,6 +1,6 @@
 .btnCont {
   display: flex;
-  height: 100vh;
+  height: 94vh;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -40,26 +40,20 @@
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.7);
   }
 }
-<<<<<<< HEAD
-
-@media screen and (max-width: 768px) {    
-    .listViewBtn {
-        background-color: white;
-        display: flex;    
-        justify-content: center;
-        margin-bottom: 15px;
-        padding: 8px 22px;
-        width: 200px;
-        position: relative;
-        cursor: pointer;
-        font-weight: bold;
-        border-radius: 15px;
-        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.7);
-    }
+.listViewBtn {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  padding: 8px 22px;
+  width: 200px;
+  position: relative;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 15px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.7);
 }
 
 .buttonicon {
-    width: 20;
+  width: 20;
 }
-=======
->>>>>>> 4b5977093a1ec06eeed3c2ab979accdb2f898e7c
