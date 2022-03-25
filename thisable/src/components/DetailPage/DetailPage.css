@@ -63,34 +63,44 @@
   justify-content: center;
 }
 
-.customtoggle {
+.card {
+  border: none;
+}
+
+.customToggle {
   border: 0;
-  outline: 0;
+  padding: 10px 20px;
   background-color: #ffffff;
 }
 
 .togglelist {
   display: flex;
-  margin-top: 1rem;
+  margin: 1rem;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   padding-left: 1rem;
 }
 
 .toggle {
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 14px;
+}
+
+.toggle > div {
+  display: flex;
   justify-content: space-between;
+  font-size: 1rem;
+  margin: 2px;
 }
 
-.togglekey {
+.toggle > div > div:first-child {
   font-weight: bold;
-  font-size: 1rem;
-  padding: 1rem;
 }
 
-.togglevalue {
-  font-size: 1rem;
-  padding: 1rem;
+.toggle > div > div:last-child {
+  margin-left: 40px;
 }
 
 .reviewcontainer {
