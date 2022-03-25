@@ -32,7 +32,7 @@ function ToggleView() {
   useEffect(async () => {
     const chargerInfo = await getPlaceDetailCharger(id);
     setCharger(chargerInfo.data);
-  }, []);
+  }, [id]);
 
   return (
     <div>

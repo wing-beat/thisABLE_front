@@ -6,11 +6,12 @@ import "./MainPage.css";
 
 function MainPageList() {
   const [places, setPlaces] = useState("");
+  const [page, setPage] = useState(1);
 
   useEffect(async () => {
-    const list = await getPlaceList();
+    const list = await getPlaceList(page);
     setPlaces(list);
-  }, []);
+  }, [page]);
 
   const renderPlaces =
     places &&
@@ -24,6 +25,7 @@ function MainPageList() {
 
   const handleCallback = (changedPage) => {
     console.log("넘어온 페이지네이션 페이지", changedPage);
+    setPage(changedPage);
   };
 
   return (

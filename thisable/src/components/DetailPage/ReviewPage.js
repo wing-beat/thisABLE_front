@@ -20,7 +20,7 @@ function ReviewPage({ locationId }) {
     const reviewList = await getReview(locationId);
     setReviews(reviewList);
     console.log(reviewList.response);
-  }, []);
+  }, [locationId]);
 
   const [inputValue, setInputValue] = useState("");
   console.log("input: ", inputValue);

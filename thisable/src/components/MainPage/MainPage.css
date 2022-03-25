@@ -4,7 +4,7 @@
 }
 
 .MainPageList {
-  overflow: initial;
+  overflow: auto;
   height: 94vh;
   min-width: 380px;
 }

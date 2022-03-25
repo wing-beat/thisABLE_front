@@ -18,7 +18,7 @@ function DetailPage() {
   useEffect(async () => {
     const detail = await getPlaceDetail(id);
     setPlace(detail.response);
-  }, []);
+  }, [id]);
 
   return (
     <div className="maincontainer">
