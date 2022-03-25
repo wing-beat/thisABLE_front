@@ -60,64 +60,27 @@ function MapPage() {
   }, []);
 
   const renderMap = () => {
-    return (
-      <GoogleMap
-        mapContainerStyle={mapStyle}
-        zoom={18}
-        center={{ lat: +lat, lng: +lng }}
-        onClick={() => setActiveMarker(null)}
-      >
-        {renderBtn()}
-        {renderMarker}
-        <Marker position={{ lat: +lat, lng: +lng }} />
-      </GoogleMap>
-    );
-  };
-
-  const renderBtn = () => {
-    return (
-      <div className="btnCont">
-        <div className="filterBtnCont">
-          <div onClick={() => setCategory("icon1")}>
-            <img
-              width={20}
-              style={{ marginRight: "0.5rem" }}
-              src={toiletImg}
-            ></img>
-            장애인 화장실
-          </div>
-          <div onClick={() => setCategory("icon2")}>
-            <img
-              width={20}
-              style={{ marginRight: "0.5rem" }}
-              src={chargerImg}
-            ></img>
-            휠체어 충전기
-          </div>
-          <div onClick={() => setCategory("icon3")}>
-            <img
-              width={20}
-              style={{ marginRight: "0.5rem" }}
-              src={elevatorImg}
-            ></img>
-            엘리베이터
-          </div>
-          <div onClick={() => setCategory("icon4")}>
-            <img
-              width={20}
-              style={{ marginRight: "0.5rem" }}
-              src={slopeImg}
-            ></img>
-            슬로프
-          </div>
-          <div onClick={() => setCategory("")}>모두 보기</div>
+    return <GoogleMap
+      mapContainerStyle={mapStyle}
+      zoom={18}      
+      center={{lat: +lat, lng: +lng}}
+      onClick={() => setActiveMarker(null)}>   
+      <div className='btnCont'>
+        <div className='filterBtnCont'>      
+          <div onClick={() => setCategory("icon1")}><img width={20} style={{marginRight:"0.5rem"}} src={toiletImg}></img>장애인 화장실</div>
+          <div onClick={() => setCategory("icon2")}><img width={20} style={{marginRight:"0.5rem"}} src={chargerImg}></img>휠체어 충전기</div>        
+          <div onClick={() => setCategory("icon3")}><img width={20} style={{marginRight:"0.5rem"}} src={elevatorImg}></img>엘리베이터</div>        
+          <div onClick={() => setCategory("icon4")}><img width={20} style={{marginRight:"0.5rem"}} src={slopeImg}></img>슬로프</div>        
+          <div onClick={() => setCategory("")}>모두 보기</div>        
         </div>
         <Link to="/" style={{ textDecoration: "none", color: "black" }}>
           <div className="listViewBtn">리스트 보기</div>
         </Link>
-      </div>
-    );
-  };
+        </div>
+      {renderMarker}
+      <Marker position={{lat: +lat, lng:+lng}} />
+    </GoogleMap>
+  }
 
   const renderMarker =
     places &&
