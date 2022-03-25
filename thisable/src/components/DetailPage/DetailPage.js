@@ -58,7 +58,7 @@ function DetailPage() {
       </div>
 
       <div className="togglelist">
-        <ToggleView />
+        <ToggleView detail={place} />
       </div>
 
       <ReviewPage locationId={id} />
