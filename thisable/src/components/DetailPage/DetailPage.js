@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import MapPage from "../MapPage/MapPage";
 import ReviewPage from "./ReviewPage";
 import ToggleView from "./ToggleView";
-import { getPlaceDetail } from "../../services/user.service";
+import { getPlaceDetail, getReviewAverage } from "../../services/user.service";
 import slopeImg from "../../assets/images/slope.svg";
 import chargerImg from "../../assets/images/charger.svg";
 import toiletImg from "../../assets/images/toilet.svg";
@@ -12,12 +12,14 @@ import "./DetailPage.css";
 
 function DetailPage() {
   const [place, setPlace] = useState("");
-
+  const [reviewCount, setReviewCount] = useState("");
   let { id } = useParams();
 
   useEffect(async () => {
     const detail = await getPlaceDetail(id);
+    const averageNum = await getReviewAverage(id);
     setPlace(detail.response);
+    setReviewCount(averageNum);
   }, [id]);
 
   return (
@@ -28,7 +30,9 @@ function DetailPage() {
           <div className="placetype">{place.locationType}</div>
         </div>
         <div className="placeaddress">{place.address}</div>
-        <div className="placerate">★★★☆☆ (1023)</div>
+        <div className="placerate">
+          {reviewCount.average} ({reviewCount.count})
+        </div>
         <div className="placeiconlist">
           {place.isToiletExists && (
             <div className="placeicon">
