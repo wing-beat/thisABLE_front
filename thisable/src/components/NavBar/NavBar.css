@@ -27,6 +27,11 @@
   float: left;
 }
 
+.logoimg {
+  width: 140px;
+  margin-left: 1rem;
+}
+
 .nav-logotext {
   position: relative;
   width: 100px;

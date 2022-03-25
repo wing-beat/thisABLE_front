@@ -8,7 +8,7 @@ function NavBar() {
     <div className="nav-div">
       <Navbar className="navBar">
         <Nav className="nav-logo-container" href="/">
-          <img className="" alt="logo" src={logoimg}></img>
+          <img className="logoimg" alt="logo" src={logoimg}></img>
         </Nav>
         <Nav className="nav-button">
           <Nav.Link href="/">즐겨찾기</Nav.Link>
