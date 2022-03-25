@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Rating } from "react-simple-star-rating";
 import {
   getReview,
+  getReviewAverage,
   postReview,
   postReviewRecommend,
   postReviewDiscourage,
@@ -11,6 +12,7 @@ import {
 function ReviewPage({ locationId }) {
   const [reviews, setReviews] = useState("");
   const [rating, setRating] = useState(0);
+  const [reviewNum, setReviewNum] = useState("");
 
   const handleRating = (rate) => {
     setRating(rate / 20);
@@ -19,8 +21,9 @@ function ReviewPage({ locationId }) {
 
   useEffect(async () => {
     const reviewList = await getReview(locationId);
+    const averageNum = await getReviewAverage(locationId);
     setReviews(reviewList);
-    console.log(reviewList.response);
+    setReviewNum(averageNum.count);
   }, [locationId]);
 
   const [inputValue, setInputValue] = useState("");
@@ -90,7 +93,7 @@ function ReviewPage({ locationId }) {
       </div>
       <div className="reviewlist">
         <div className="reviewlisttitle">
-          <div className="reviewlistnum">후기 435개</div>
+          <div className="reviewlistnum">후기 {reviewNum}개</div>
           <div className="reviewlistsort">사용자 추천순 | 최근 작성순</div>
         </div>
         {renderReviews}

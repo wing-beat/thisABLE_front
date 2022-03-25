@@ -28,6 +28,12 @@ export const getReview = (id) => {
   });
 };
 
+export const getReviewAverage = (id) => {
+  return axios.get(baseUrl + "/" + id + "/review/average").then((response) => {
+    return response.data;
+  });
+};
+
 export const postReview = (locationId, detail, star) => {
   return axios
     .post(baseUrl + "/review", {
