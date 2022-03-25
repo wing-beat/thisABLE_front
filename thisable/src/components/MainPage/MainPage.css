@@ -1,42 +1,47 @@
 /* MainPage */
 .MainPage {
-    display: flex;
+  display: flex;
 }
 
 @media screen and (max-width: 768px) {
-    .MainPageList {
-        display: none;
-    }
+  .MainPageList {
+    display: none;
+  }
 }
 
 /* MainPageList */
 .PlaceListContainer {
-    border: 2px solid #E599B3;
-    box-sizing: border-box;
-    border-radius: 10px;
-    margin: 15px 20px;
-    padding: 15px;
-    min-width: 300px;
+  border: 2px solid #e599b3;
+  box-sizing: border-box;
+  border-radius: 10px;
+  margin: 15px 20px;
+  padding: 15px;
+  min-width: 300px;
 }
 .placeType {
-    font-size: 0.9rem;
-    margin: 0 10px;    
-    color: #727272;
+  font-size: 0.9rem;
+  margin: 0 10px;
+  color: #727272;
 }
 .placeDist {
-    color: #F0A044;
+  color: #f0a044;
 }
 .placeAddr {
-    font-size: 0.9rem;
-    color: #B0B0B0;
-    font-weight: 300;
+  font-size: 0.9rem;
+  color: #b0b0b0;
+  font-weight: 300;
 }
-.placeIcon {    
-    display: flex;
-    margin-top: 8px;
-    justify-content: flex-end;
+.placeIcon {
+  display: flex;
+  margin-top: 8px;
+  justify-content: flex-end;
 }
 .placeIcon > img {
+<<<<<<< HEAD
     margin-right: 5px;
     width: 35px;
 }
+=======
+  margin-right: 5px;
+}
+>>>>>>> 4b5977093a1ec06eeed3c2ab979accdb2f898e7c

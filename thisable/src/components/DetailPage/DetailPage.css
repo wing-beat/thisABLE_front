@@ -1,221 +1,220 @@
-.maincontainer{
- display: flex;   
- flex-direction: column;
- align-content: center;
+.maincontainer {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
 }
 
 .placedetail {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .placenametype {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-top: 1rem;
 }
 
 .placename {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .placetype {
-    color: #00B8E0;
-    font-size: 0.9rem;
-    margin-left: 10px;  
+  color: #00b8e0;
+  font-size: 0.9rem;
+  margin-left: 10px;
 }
 
 .placeaddress {
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    color: #B0B0B0;
-    font-weight: 300;
-    margin-left: 1rem;
-    margin-right: 1rem;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #b0b0b0;
+  font-weight: 300;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .placerate {
-    margin-top: 1rem;
-    font-size: 1rem;
-    font-weight: bold;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 .placeiconlist {
-    margin-top: 1rem;
-    display: flex;
-    margin-top: 8px;
-    width: 300px;
-    justify-content: space-between;
+  margin-top: 1rem;
+  display: flex;
+  margin-top: 8px;
+  width: 300px;
+  justify-content: space-between;
 }
 
 .placeicon {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    width: 70px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  width: 70px;
 }
 
 .placeiconname {
-    font-size: 0.7rem;
-    display: flex;
-    justify-content: center;
+  font-size: 0.7rem;
+  display: flex;
+  justify-content: center;
 }
 
 .customtoggle {
-    border: 0;
-    outline: 0;
-    background-color: #ffffff;
+  border: 0;
+  outline: 0;
+  background-color: #ffffff;
 }
 
 .togglelist {
-    display: flex;
-    margin-top: 1rem;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-left: 1rem;
+  display: flex;
+  margin-top: 1rem;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 1rem;
 }
 
 .toggle {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .togglekey {
-    font-weight: bold;
-    font-size: 1rem;
-    padding: 1rem;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 1rem;
 }
 
 .togglevalue {
-    font-size: 1rem;
-    padding: 1rem;
+  font-size: 1rem;
+  padding: 1rem;
 }
 
 .reviewcontainer {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
 }
 
 .reviewinputtop {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: flex-end;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-end;
 }
 
 .reviewtitle {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
-.reviewinputstar{
-    font-size: 2rem;
+.reviewinputstar {
+  font-size: 2rem;
 }
 
 .reviewinput {
-    border: 2px solid #9D9D9D;
-    border-radius: 10px;
-    font-size: 0.5rem;
-    min-height: 3rem;
-    padding: 0.3rem;
-    margin-top: 1rem;
+  border: 2px solid #9d9d9d;
+  border-radius: 10px;
+  font-size: 0.5rem;
+  min-height: 3rem;
+  padding: 0.3rem;
+  margin-top: 1rem;
 }
 
 .reviewinputbutton {
-    display: flex;
-    background-color: #E599B3;
-    font-weight: bold;
-    font-size: 0.5rem;
-    margin-top: 1rem;
-    height: 1.3rem;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    border-color: #E599B3;
+  display: flex;
+  background-color: #e599b3;
+  font-weight: bold;
+  font-size: 0.5rem;
+  margin-top: 1rem;
+  height: 1.3rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border-color: #e599b3;
 }
 
 .reviewlist {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
 }
 
 .reviewlisttitle {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
-    flex-direction: row;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  flex-direction: row;
 }
 
 .reviewlistnum {
-    font-size: 1.5rem;
-    font-weight: bold;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .reviewlistsort {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 .review {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 .reviewtop {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .reviewtopleft {
-    display: flex;
-    align-items: center;
-    
+  display: flex;
+  align-items: center;
 }
 
 .reviewstar {
-    font-size: 1rem;
-    color: #F0A044;
-    margin-right: 1rem;
+  font-size: 1rem;
+  color: #f0a044;
+  margin-right: 1rem;
 }
 
 .reviewuser {
-    position: relative;
-    font-size: 0.9rem;
+  position: relative;
+  font-size: 0.9rem;
 }
 
 .reviewdate {
-    color:#9D9D9D;
-    font-size: 0.7rem;
+  color: #9d9d9d;
+  font-size: 0.7rem;
 }
 
 .reviewcontent {
-    font-size: 1rem;
-    align-items: center;
+  font-size: 1rem;
+  align-items: center;
 }
 
 .helpbuttoncontainer {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .helpbutton {
-    display: flex;
-    font-weight: bold;
-    font-size: 0.5rem;
-    margin-top: 1rem;
-    height: 1.3rem;
-    align-items: center;
-    border-radius: 10px;
-    border-color: #F0A044;
-    background-color: #ffffff;
-    padding-left: 1rem;
-    padding-right: 1rem;
+  display: flex;
+  font-weight: bold;
+  font-size: 0.5rem;
+  margin-top: 1rem;
+  height: 1.3rem;
+  align-items: center;
+  border-radius: 10px;
+  border-color: #f0a044;
+  background-color: #ffffff;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .helpbuttonnum {
-    color: #CB3267;
-    font-size: 0.8rem;
-    font-weight: bold;
-    margin-left: 0.6rem;
+  color: #cb3267;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-left: 0.6rem;
 }
