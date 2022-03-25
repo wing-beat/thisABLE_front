@@ -16,8 +16,8 @@ import toiletImg from "../../assets/images/toilet.svg";
 import elevatorImg from "../../assets/images/elevator.svg";
 
 function MapPage() {
-  const [lat, setLat] = useState(null);
-  const [lng, setLng] = useState(null);
+  const [lat, setLat] = useState(37.544127);
+  const [lng, setLng] = useState(126.9667812);
   const [places, setPlaces] = useState("");
 
   if (!navigator.geolocation) {
