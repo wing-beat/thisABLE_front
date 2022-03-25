@@ -14,6 +14,14 @@ import slopeImg from "../../assets/images/slope.svg";
 import chargerImg from "../../assets/images/charger.svg";
 import toiletImg from "../../assets/images/toilet.svg";
 import elevatorImg from "../../assets/images/elevator.svg";
+import cafe from "../../assets/images/cafe.svg";
+import business from "../../assets/images/business.svg";
+import culture from "../../assets/images/culture.svg";
+import hotel from "../../assets/images/hotel.svg";
+import mall from "../../assets/images/mall.svg";
+import myself from "../../assets/images/myself.svg";
+import restaurant from "../../assets/images/restaurant.svg";
+import subway from "../../assets/images/subway.svg";
 
 function MapPage() {
   const [lat, setLat] = useState(37.544127);
@@ -28,7 +36,7 @@ function MapPage() {
       (position) => {
         setLat(position.coords.latitude);
         setLng(position.coords.longitude);
-        console.log("lat:", lat, "lng:", lng);
+        //console.log("lat:", lat, "lng:", lng);
       },
       () => {
         console.log("Unable to retrieve your location");
@@ -59,6 +67,28 @@ function MapPage() {
     setPlaces(list.results);
   }, []);
 
+  const selectMarker = (location_type) => {
+    let place_icon = "";
+    console.log("location_type : ",location_type)
+    if (location_type == "cafe") {
+      place_icon = cafe
+    } else if (location_type == "restaurant") {
+      place_icon = restaurant
+    } else if (location_type == "accommodation") {
+      place_icon = hotel
+    } else if (location_type == "shoppingmall") {
+      place_icon = mall
+    } else if (location_type == "subway") {
+      place_icon = subway
+    } else if (location_type == "administrative") {
+      place_icon = business
+    } else if (location_type == "cultural") {
+      place_icon = culture
+    }
+    console.log("place_icon : ",place_icon)
+    return place_icon
+  }
+
   const renderMap = () => {
     return <GoogleMap
       mapContainerStyle={mapStyle}
@@ -78,7 +108,7 @@ function MapPage() {
         </Link>
         </div>
       {renderMarker}
-      <Marker position={{lat: +lat, lng:+lng}} />
+      <Marker position={{lat: +lat, lng:+lng}} icon={myself}/>
     </GoogleMap>
   }
 
@@ -102,6 +132,7 @@ function MapPage() {
         <Marker
           position={{ lat: place.latitude, lng: place.longitude }}
           onClick={() => handleActiveMarker(place._id)}
+          icon={selectMarker(place.locationType)}
         >
           {activeMarker === place._id ? (
             <InfoWindow onCloseClick={() => setActiveMarker(null)}>
@@ -113,5 +144,6 @@ function MapPage() {
 
   return isLoaded ? renderMap() : <CircularProgress />;
 }
+
 
 export default MapPage;
