@@ -51,7 +51,9 @@ function ReviewPage({ locationId }) {
               <Rating ratingValue={review.star * 20} readonly />
               <div className="reviewuser">{review.userType}</div>
             </div>
-            <div className="reviewdate">{review.createdAt}</div>
+            <div className="reviewdate">
+              {review.createdAt.replace("T", " ").substring(0, 10)}
+            </div>
           </div>
           <div className="reviewcontent">{review.detail}</div>
           <div className="helpbuttoncontainer">
