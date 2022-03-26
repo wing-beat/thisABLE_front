@@ -3,7 +3,7 @@ import { Pagination } from "react-bootstrap";
 
 function PaginationView({ page, handleCallback }) {
   let items = [];
-  const [currentNum, setCurrentNum] = useState(page.currentPage);
+  const [currentNum, setCurrentNum] = useState(1);
 
   for (let number = 1; number <= page.totalPage; number++) {
     items.push(

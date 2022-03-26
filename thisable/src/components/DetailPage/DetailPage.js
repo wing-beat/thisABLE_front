@@ -45,10 +45,12 @@ function DetailPage() {
           <div className="placetype">{place.locationType}</div>
         </div>
         <div className="placeaddress">{place.address}</div>
-        <div className="placerate">
-          <Rating ratingValue={reviewCount.average * 20} readonly />(
-          {reviewCount.count})
-        </div>
+        {reviewCount && (
+          <div className="placerate">
+            <Rating ratingValue={reviewCount.average * 20} readonly />(
+            {reviewCount.count})
+          </div>
+        )}
         <div className="placeiconlist">
           {place.isToiletExists && (
             <div className="placeicon">

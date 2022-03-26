@@ -64,13 +64,12 @@ function MapPage() {
   };
 
   useEffect(async () => {
-    const list = await getPlaceList();
+    const list = await getPlaceList(1);
     setPlaces(list.results);
   }, []);
 
   const selectMarker = (location_type) => {
     let place_icon = "";
-    console.log("location_type : ", location_type);
     if (location_type == "cafe") {
       place_icon = cafe;
     } else if (location_type == "restaurant") {
@@ -86,7 +85,6 @@ function MapPage() {
     } else if (location_type == "cultural") {
       place_icon = culture;
     }
-    console.log("place_icon : ", place_icon);
     return place_icon;
   };
 
