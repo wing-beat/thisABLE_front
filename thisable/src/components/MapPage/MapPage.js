@@ -139,7 +139,7 @@ function MapPage() {
           </Link>
         </div>
         {renderMarker}
-        <Marker position={{ lat: +lat, lng: +lng }} />;
+        <Marker position={{ lat: +lat, lng: +lng }} icon={myself}/>;
       </GoogleMap>
     );
   };
