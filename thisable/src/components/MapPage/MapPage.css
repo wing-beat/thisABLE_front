@@ -25,12 +25,32 @@
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
 }
 
+.mapViewBtn {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
+  .mapViewBtn {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    padding: 8px 22px;
+    width: 200px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    position: fixed;
+    bottom: 60px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 15px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.7);
+  }
   .listViewBtn {
     background-color: white;
     display: flex;
     justify-content: center;
-    margin-bottom: 15px;
+    margin-bottom: 60px;
     padding: 8px 22px;
     width: 200px;
     position: relative;
@@ -39,19 +59,6 @@
     border-radius: 15px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.7);
   }
-}
-.listViewBtn {
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 50px;
-  padding: 8px 22px;
-  width: 200px;
-  position: relative;
-  cursor: pointer;
-  font-weight: bold;
-  border-radius: 15px;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.7);
 }
 
 .buttonicon {
