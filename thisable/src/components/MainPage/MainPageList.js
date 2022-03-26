@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { getPlaceList } from "../../services/user.service";
 import PlaceInfo from "../MapPage/PlaceInfo";
 import PaginationView from "./PaginationView";
@@ -30,6 +31,9 @@ function MainPageList() {
 
   return (
     <div>
+      <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+        <div className="mapViewBtn">지도 보기</div>
+      </Link>
       {renderPlaces}
       <PaginationView page={places} handleCallback={handleCallback} />
     </div>
