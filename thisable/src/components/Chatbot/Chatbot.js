@@ -5,6 +5,7 @@ import { saveMessage } from "../../_actions/message_actions";
 import Message from "./Sections/Message";
 import { List, Icon, Avatar } from "antd";
 import Card from "./Sections/Card";
+import "./Chatbot.css";
 
 function Chatbot() {
   const dispatch = useDispatch();
