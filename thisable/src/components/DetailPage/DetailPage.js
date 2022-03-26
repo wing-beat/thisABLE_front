@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import MapPage from "../MapPage/MapPage";
 import ReviewPage from "./ReviewPage";
 import ToggleView from "./ToggleView";
 import { getPlaceDetail, getReviewAverage } from "../../services/user.service";
@@ -9,6 +8,8 @@ import chargerImg from "../../assets/images/charger.svg";
 import toiletImg from "../../assets/images/toilet.svg";
 import elevatorImg from "../../assets/images/elevator.svg";
 import "./DetailPage.css";
+import { Rating } from "react-simple-star-rating";
+import {Link} from 'react-router-dom';
 
 function DetailPage() {
   const [place, setPlace] = useState("");
@@ -24,6 +25,8 @@ function DetailPage() {
 
   return (
     <div className="maincontainer">
+      <Link to={`/`} media="screen and (min-width:768px) and (max-width: 1042px)" className="backweb">◀ 뒤로가기</Link>
+      <Link to={`/list`} media="screen and (min-width:0px) and (max-width: 768px)" className="backmobile">◀ 리스트로 가기</Link>
       <div className="placedetail">
         <div className="placenametype">
           <h5 className="placename">{place.name}</h5>
@@ -31,7 +34,8 @@ function DetailPage() {
         </div>
         <div className="placeaddress">{place.address}</div>
         <div className="placerate">
-          {reviewCount.average} ({reviewCount.count})
+        <Rating ratingValue={reviewCount.average * 20} readonly />
+         ({reviewCount.count})
         </div>
         <div className="placeiconlist">
           {place.isToiletExists && (

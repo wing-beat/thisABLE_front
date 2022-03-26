@@ -22,10 +22,12 @@ export const getPlaceDetailCharger = (id) => {
   });
 };
 
-export const getReview = (id) => {
-  return axios.get(baseUrl + "/" + id + "/review").then((response) => {
-    return response.data;
-  });
+export const getReview = (id, sort) => {
+  return axios
+    .get(baseUrl + "/" + id + "/review?sort=" + sort)
+    .then((response) => {
+      return response.data;
+    });
 };
 
 export const getReviewAverage = (id) => {
@@ -34,9 +36,10 @@ export const getReviewAverage = (id) => {
   });
 };
 
-export const postReview = (locationId, detail, star) => {
+export const postReview = (userType, locationId, detail, star) => {
   return axios
     .post(baseUrl + "/review", {
+      userType:userType,
       locationId: locationId,
       detail: detail,
       star: star,

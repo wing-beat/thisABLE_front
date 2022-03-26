@@ -1,0 +1,39 @@
+* {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.chatbotModal {
+  background-color: #e599b3;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  box-shadow: 0 10px 10px rgb(0 0 0 / 30%);
+}
+
+.robotBtn > svg {
+  width: 4rem;
+  height: 4rem;
+}
+
+.ant-list-item-meta-content {
+  max-width: 500px;
+  overflow-x: none;
+}
+
+.ant-list-item-meta-title {
+  font-size: 20px !important;
+}
+
+.ant-list-item-meta-description {
+  display: flex;
+  color: black !important;
+}
