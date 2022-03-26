@@ -70,25 +70,25 @@ function MapPage() {
 
   const selectMarker = (location_type) => {
     let place_icon = "";
-    console.log("location_type : ",location_type)
+    console.log("location_type : ", location_type);
     if (location_type == "cafe") {
-      place_icon = cafe
+      place_icon = cafe;
     } else if (location_type == "restaurant") {
-      place_icon = restaurant
+      place_icon = restaurant;
     } else if (location_type == "accommodation") {
-      place_icon = hotel
+      place_icon = hotel;
     } else if (location_type == "shoppingmall") {
-      place_icon = mall
+      place_icon = mall;
     } else if (location_type == "subway") {
-      place_icon = subway
+      place_icon = subway;
     } else if (location_type == "administrative") {
-      place_icon = business
+      place_icon = business;
     } else if (location_type == "cultural") {
-      place_icon = culture
+      place_icon = culture;
     }
-    console.log("place_icon : ",place_icon)
-    return place_icon
-  }
+    console.log("place_icon : ", place_icon);
+    return place_icon;
+  };
 
   const renderMap = () => {
     return (
@@ -139,11 +139,10 @@ function MapPage() {
           </Link>
         </div>
         {renderMarker}
-        <Marker position={{ lat: +lat, lng: +lng }} />;
+        <Marker position={{ lat: +lat, lng: +lng }} icon={myself} />;
       </GoogleMap>
     );
   };
-
 
   const renderMarker =
     places &&
@@ -180,6 +179,5 @@ function MapPage() {
 
   return isLoaded ? renderMap() : <CircularProgress />;
 }
-
 
 export default MapPage;
