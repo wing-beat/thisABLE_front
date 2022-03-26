@@ -168,6 +168,15 @@
 
 .reviewlistsort {
   font-size: 1rem;
+  display: flex;
+}
+
+.reviewlistsort > div {
+  cursor: pointer;
+}
+
+.reviewlistsort > div:last-child {
+  margin-left: 5px;
 }
 
 .review {

@@ -22,10 +22,12 @@ export const getPlaceDetailCharger = (id) => {
   });
 };
 
-export const getReview = (id) => {
-  return axios.get(baseUrl + "/" + id + "/review").then((response) => {
-    return response.data;
-  });
+export const getReview = (id, sort) => {
+  return axios
+    .get(baseUrl + "/" + id + "/review?sort=" + sort)
+    .then((response) => {
+      return response.data;
+    });
 };
 
 export const getReviewAverage = (id) => {
