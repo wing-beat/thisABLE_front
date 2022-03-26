@@ -54,7 +54,7 @@
 
 .nav-button {
   text-decoration: none;
-  font-size: 15px;
+  font-size: 10px;
   color: black;
   float: left;
   margin-right: 1rem;
@@ -78,4 +78,20 @@
   padding: 2.5rem;
   line-height: 270%;
   align-items: center;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+  .webnav {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 769px) {
+
+  .mobilenav {
+    display: none;
+  }
 }
