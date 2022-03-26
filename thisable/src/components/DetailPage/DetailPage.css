@@ -59,7 +59,7 @@
 }
 
 .placeicon > img {
-  width: 70px
+  width: 70px;
 }
 
 .placeiconname {
@@ -289,7 +289,6 @@
 }
 
 @media screen and (min-width: 769px) {
-
   .backmobile {
     display: none;
   }
