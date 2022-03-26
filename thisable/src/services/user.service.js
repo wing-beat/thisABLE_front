@@ -36,9 +36,10 @@ export const getReviewAverage = (id) => {
   });
 };
 
-export const postReview = (locationId, detail, star) => {
+export const postReview = (userType, locationId, detail, star) => {
   return axios
     .post(baseUrl + "/review", {
+      userType:userType,
       locationId: locationId,
       detail: detail,
       star: star,
