@@ -1,0 +1,19 @@
+* {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.ant-list-item-meta-content {
+  max-width: 500px;
+  overflow-x: none;
+}
+
+.ant-list-item-meta-title {
+  font-size: 20px !important;
+}
+
+.ant-list-item-meta-description {
+  display: flex;
+  color: black !important;
+}
