@@ -7,8 +7,10 @@ import {
 } from "@react-google-maps/api";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { Link } from "react-router-dom";
+import { Modal } from "react-bootstrap";
 import { getPlaceList } from "../../services/user.service";
 import PlaceInfo from "./PlaceInfo";
+import DetailPage from "../DetailPage/DetailPage";
 import "./MapPage.css";
 import slopeImg from "../../assets/images/slope.svg";
 import chargerImg from "../../assets/images/charger.svg";
@@ -19,6 +21,7 @@ function MapPage() {
   const [lat, setLat] = useState(37.544127);
   const [lng, setLng] = useState(126.9667812);
   const [places, setPlaces] = useState("");
+  const [modalShow, setModalShow] = useState(false);
 
   if (!navigator.geolocation) {
     console.log("Geolocation is not supported by your browser");
@@ -106,6 +109,12 @@ function MapPage() {
           <Link to="/list" style={{ textDecoration: "none", color: "black" }}>
             <div className="listViewBtn">리스트 보기</div>
           </Link>
+          <Modal show={modalShow} onHide={() => setModalShow(false)}>
+            <Modal.Header closeButton />
+            <Modal.Body>
+              <DetailPage />
+            </Modal.Body>
+          </Modal>
         </div>
         {renderMarker}
         <Marker position={{ lat: +lat, lng: +lng }} />;
@@ -136,7 +145,15 @@ function MapPage() {
         >
           {activeMarker === place._id ? (
             <InfoWindow onCloseClick={() => setActiveMarker(null)}>
-              {PlaceInfo(place)}
+              <>
+                <div
+                  onClick={() => setModalShow(true)}
+                  className="mapModalMobile"
+                >
+                  {PlaceInfo(place)}
+                </div>
+                <div className="mapModalPc">{PlaceInfo(place)}</div>
+              </>
             </InfoWindow>
           ) : null}
         </Marker>

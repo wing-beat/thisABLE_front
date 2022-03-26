@@ -28,7 +28,9 @@
 .mapViewBtn {
   display: none;
 }
-
+.mapModalMobile {
+  display: none;
+}
 @media screen and (max-width: 768px) {
   .mapViewBtn {
     background-color: white;
@@ -58,6 +60,12 @@
     font-weight: bold;
     border-radius: 15px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.7);
+  }
+  .mapModalMobile {
+    display: flex;
+  }
+  .mapModalPc {
+    display: none;
   }
 }
 
