@@ -14,7 +14,7 @@ import thumbsdown from "../../assets/images/thumbs_down.svg";
 function ReviewPage({ locationId }) {
   const [reviews, setReviews] = useState("");
   const [rating, setRating] = useState(0);
-  const [reviewNum, setReviewNum] = useState("");
+  const [reviewNum, setReviewNum] = useState(0);
   const [sort, setSort] = useState("recommended");
   const [userType, setUserType] = useState("anonymous");
 
@@ -35,6 +35,7 @@ function ReviewPage({ locationId }) {
   const clear = () => {
     setInputValue("");
     setRating(0);
+    setSort("createdAt");
   };
 
   const [recommend, setRecommend] = useState(0);
