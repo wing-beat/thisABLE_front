@@ -103,7 +103,7 @@ function MapPage() {
             </div>
             <div onClick={() => setCategory("")}>모두 보기</div>
           </div>
-          <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+          <Link to="/list" style={{ textDecoration: "none", color: "black" }}>
             <div className="listViewBtn">리스트 보기</div>
           </Link>
         </div>
