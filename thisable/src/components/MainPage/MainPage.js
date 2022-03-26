@@ -1,5 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import ChatbotModal from "../Chatbot/ChatbotModal";
 import MapPage from "../MapPage/MapPage";
 import "./MainPage.css";
 
@@ -10,6 +11,7 @@ function MainPage() {
       <div className="MainPageList">
         <Outlet />
       </div>
+      <ChatbotModal />
     </div>
   );
 }
