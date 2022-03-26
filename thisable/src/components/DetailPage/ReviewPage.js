@@ -8,8 +8,8 @@ import {
   postReviewRecommend,
   postReviewDiscourage,
 } from "../../services/user.service";
-import thumbsup from "../../assets/images/thumbs_up.svg"
-import thumbsdown from "../../assets/images/thumbs_down.svg"
+import thumbsup from "../../assets/images/thumbs_up.svg";
+import thumbsdown from "../../assets/images/thumbs_down.svg";
 
 function ReviewPage({ locationId }) {
   const [reviews, setReviews] = useState("");
@@ -31,7 +31,6 @@ function ReviewPage({ locationId }) {
   }, [locationId, sort]);
 
   const [inputValue, setInputValue] = useState("");
-  console.log("input: ", inputValue);
 
   const clear = () => {
     setInputValue("");
@@ -51,7 +50,7 @@ function ReviewPage({ locationId }) {
         <div className="review">
           <div className="reviewtop">
             <div className="reviewtopleft">
-              <Rating ratingValue={review.star * 20} readonly size={25}/>
+              <Rating ratingValue={review.star * 20} readonly size={25} />
               <div className="reviewuser">{review.userType}</div>
             </div>
             <div className="reviewdate">
@@ -61,21 +60,40 @@ function ReviewPage({ locationId }) {
           <div className="reviewcontent">{review.detail}</div>
           <div className="helpbuttoncontainer">
             <button className="helpbutton">
-              <div className="buttondisplay"
+              <div
+                className="buttondisplay"
                 onClick={() =>
                   postReviewRecommend(review._id) && setRecommend(good + 1)
                 }
               >
-                <img src={thumbsup} style={{width:"1rem", marginRight:"0.4rem", marginTop:"0.3rem", marginBottom:"0.3rem"}}></img>
+                <img
+                  src={thumbsup}
+                  style={{
+                    width: "1rem",
+                    marginRight: "0.4rem",
+                    marginTop: "0.3rem",
+                    marginBottom: "0.3rem",
+                  }}
+                ></img>
                 도움이 돼요
               </div>
               {/* <div className="helpbuttonnum">{recommend}</div> */}
               <div className="helpbuttonnum">{review.good}</div>
             </button>
             <button className="helpbutton">
-              <div  className="buttondisplay"
-              onClick={() => postReviewDiscourage(review._id)}>
-              <img src={thumbsdown} style={{width:"1rem", marginRight:"0.4rem", marginTop:"0.3rem", marginBottom:"0.3rem"}}></img>
+              <div
+                className="buttondisplay"
+                onClick={() => postReviewDiscourage(review._id)}
+              >
+                <img
+                  src={thumbsdown}
+                  style={{
+                    width: "1rem",
+                    marginRight: "0.4rem",
+                    marginTop: "0.3rem",
+                    marginBottom: "0.3rem",
+                  }}
+                ></img>
                 도움이 안돼요
               </div>
               <div className="helpbuttonnum">{bad}</div>
@@ -93,11 +111,27 @@ function ReviewPage({ locationId }) {
           <Rating onClick={handleRating} ratingValue={rating} />
         </div>
         <div className="userinfo">
-          <input type="radio" name="radio-group" value="disabled" onClick={() => setUserType("disabled")}/>
+          <input
+            type="radio"
+            name="radio-group"
+            value="disabled"
+            onClick={() => setUserType("disabled")}
+          />
           <label>장애인 이용자</label>
-          <input type="radio" name="radio-group" value="abled" onClick={() => setUserType("abled")}/>
+          <input
+            type="radio"
+            name="radio-group"
+            value="abled"
+            onClick={() => setUserType("abled")}
+          />
           <label>비장애인 이용자</label>
-          <input type="radio" name="radio-group" value="anonymous" defaultChecked onClick={() => setUserType("anonymous")}/>
+          <input
+            type="radio"
+            name="radio-group"
+            value="anonymous"
+            defaultChecked
+            onClick={() => setUserType("anonymous")}
+          />
           <label>익명</label>
         </div>
         <textarea
@@ -108,7 +142,9 @@ function ReviewPage({ locationId }) {
         />
         <button
           className="reviewinputbutton"
-          onClick={() => postReview(userType, locationId, inputValue, rating) && clear()}
+          onClick={() =>
+            postReview(userType, locationId, inputValue, rating) && clear()
+          }
         >
           등록
         </button>
@@ -117,9 +153,27 @@ function ReviewPage({ locationId }) {
         <div className="reviewlisttitle">
           <div className="reviewlistnum">후기 {reviewNum}개</div>
           <div className="reviewlistsort">
-            <div onClick={() => setSort("recommended")} style={ sort == "recommended" ? {fontWeight:"bold"} : {fontWeight:"normal"}}>사용자 추천순</div>
+            <div
+              onClick={() => setSort("recommended")}
+              style={
+                sort == "recommended"
+                  ? { fontWeight: "bold" }
+                  : { fontWeight: "normal" }
+              }
+            >
+              사용자 추천순
+            </div>
             <div>&nbsp;|</div>
-            <div onClick={() => setSort("createdAt")} style={ sort == "createdAt" ? {fontWeight:"bold"} : {fontWeight:"normal"}}>최근 작성순</div>
+            <div
+              onClick={() => setSort("createdAt")}
+              style={
+                sort == "createdAt"
+                  ? { fontWeight: "bold" }
+                  : { fontWeight: "normal" }
+              }
+            >
+              최근 작성순
+            </div>
           </div>
         </div>
         {renderReviews}
