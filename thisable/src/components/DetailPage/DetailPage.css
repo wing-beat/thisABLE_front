@@ -112,12 +112,14 @@
 .reviewinputtop {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  align-items: flex-end;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
 .reviewtitle {
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .reviewinputstar {
@@ -186,6 +188,7 @@
 .reviewtop {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .reviewtopleft {
@@ -199,9 +202,17 @@
   margin-right: 1rem;
 }
 
+.userinfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
 .reviewuser {
   position: relative;
   font-size: 0.9rem;
+  margin-left: 0.5rem;
+  color: #f0a044;
 }
 
 .reviewdate {
@@ -212,6 +223,8 @@
 .reviewcontent {
   font-size: 1rem;
   align-items: center;
+  margin-left: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .helpbuttoncontainer {
@@ -222,9 +235,9 @@
 .helpbutton {
   display: flex;
   font-weight: bold;
-  font-size: 0.5rem;
+  font-size: 0.8rem;
   margin-top: 1rem;
-  height: 1.3rem;
+  height: 1.7rem;
   align-items: center;
   border-radius: 10px;
   border-color: #f0a044;
@@ -233,9 +246,15 @@
   padding-right: 1rem;
 }
 
+.buttondisplay {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
 .helpbuttonnum {
   color: #cb3267;
-  font-size: 0.8rem;
+  font-size: 01rem;
   font-weight: bold;
   margin-left: 0.6rem;
 }
