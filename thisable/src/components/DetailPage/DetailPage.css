@@ -203,6 +203,8 @@
 .reviewcontent {
   font-size: 1rem;
   align-items: center;
+  margin-left: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .helpbuttoncontainer {

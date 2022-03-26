@@ -47,7 +47,7 @@ function ReviewPage({ locationId }) {
         <div className="review">
           <div className="reviewtop">
             <div className="reviewtopleft">
-              <Rating ratingValue={review.star * 20} readonly />
+              <Rating ratingValue={review.star * 20} readonly size={20,20}/>
               <div className="reviewuser">{review.userType}</div>
             </div>
             <div className="reviewdate">{review.createdAt}</div>
@@ -77,6 +77,14 @@ function ReviewPage({ locationId }) {
         <div className="reviewinputtop">
           <div className="reviewtitle">후기를 남겨주세요</div>
           <Rating onClick={handleRating} ratingValue={rating} />
+        </div>
+        <div>
+          <input type="radio" name="radio-group" value="2" />
+          <label>장애인 이용자</label>
+          <input type="radio" name="radio-group" value="2" />
+          <label>비장애인 이용자</label>
+          <input type="radio" name="radio-group" value="1" defaultChecked />
+          <label>익명</label>
         </div>
         <textarea
           className="reviewinput"

@@ -9,6 +9,7 @@ import chargerImg from "../../assets/images/charger.svg";
 import toiletImg from "../../assets/images/toilet.svg";
 import elevatorImg from "../../assets/images/elevator.svg";
 import "./DetailPage.css";
+import { Rating } from "react-simple-star-rating";
 
 function DetailPage() {
   const [place, setPlace] = useState("");
@@ -31,7 +32,8 @@ function DetailPage() {
         </div>
         <div className="placeaddress">{place.address}</div>
         <div className="placerate">
-          {reviewCount.average} ({reviewCount.count})
+        <Rating ratingValue={reviewCount.average * 20} readonly />
+         ({reviewCount.count})
         </div>
         <div className="placeiconlist">
           {place.isToiletExists && (
