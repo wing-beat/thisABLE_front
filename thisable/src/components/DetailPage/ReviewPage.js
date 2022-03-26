@@ -13,6 +13,7 @@ function ReviewPage({ locationId }) {
   const [reviews, setReviews] = useState("");
   const [rating, setRating] = useState(0);
   const [reviewNum, setReviewNum] = useState("");
+  const [sort, setSort] = useState("recommended");
 
   const handleRating = (rate) => {
     setRating(rate / 20);
@@ -20,11 +21,11 @@ function ReviewPage({ locationId }) {
   };
 
   useEffect(async () => {
-    const reviewList = await getReview(locationId);
+    const reviewList = await getReview(locationId, sort);
     const averageNum = await getReviewAverage(locationId);
     setReviews(reviewList);
     setReviewNum(averageNum.count);
-  }, [locationId]);
+  }, [locationId, sort]);
 
   const [inputValue, setInputValue] = useState("");
   console.log("input: ", inputValue);
@@ -40,9 +41,9 @@ function ReviewPage({ locationId }) {
   const renderReviews =
     reviews &&
     reviews.response.map((review) => {
-      var good = review.good
-      var bad = review.bad
-      
+      var good = review.good;
+      var bad = review.bad;
+
       return (
         <div className="review">
           <div className="reviewtop">
@@ -50,15 +51,22 @@ function ReviewPage({ locationId }) {
               <Rating ratingValue={review.star * 20} readonly />
               <div className="reviewuser">{review.userType}</div>
             </div>
-            <div className="reviewdate">{review.createdAt}</div>
+            <div className="reviewdate">
+              {review.createdAt.replace("T", " ").substring(0, 10)}
+            </div>
           </div>
           <div className="reviewcontent">{review.detail}</div>
           <div className="helpbuttoncontainer">
             <button className="helpbutton">
-              <div onClick={() => postReviewRecommend(review._id) && setRecommend(good+1)}>
+              <div
+                onClick={() =>
+                  postReviewRecommend(review._id) && setRecommend(good + 1)
+                }
+              >
                 도움이 돼요
               </div>
-              <div className="helpbuttonnum">{recommend}</div>
+              {/* <div className="helpbuttonnum">{recommend}</div> */}
+              <div className="helpbuttonnum">{review.good}</div>
             </button>
             <button className="helpbutton">
               <div onClick={() => postReviewDiscourage(review._id)}>
@@ -94,7 +102,10 @@ function ReviewPage({ locationId }) {
       <div className="reviewlist">
         <div className="reviewlisttitle">
           <div className="reviewlistnum">후기 {reviewNum}개</div>
-          <div className="reviewlistsort">사용자 추천순 | 최근 작성순</div>
+          <div className="reviewlistsort">
+            <div onClick={() => setSort("recommended")}>사용자 추천순 |</div>
+            <div onClick={() => setSort("createdAt")}>최근 작성순</div>
+          </div>
         </div>
         {renderReviews}
       </div>
