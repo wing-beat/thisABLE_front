@@ -64,7 +64,7 @@ function MapPage() {
   };
 
   useEffect(async () => {
-    const list = await getPlaceList(1);
+    const list = await getPlaceList("all");
     setPlaces(list.results);
   }, []);
 
