@@ -32,7 +32,7 @@ function MainPageList() {
   return (
     <div>
       <Link to="/" style={{ textDecoration: "none", color: "black" }}>
-        <div className="mapViewBtn">지도 보기</div>
+        <div className="mapViewBtn">View Map</div>
       </Link>
       {renderPlaces}
       <PaginationView page={places} handleCallback={handleCallback} />

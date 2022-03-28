@@ -76,7 +76,7 @@ function ReviewPage({ locationId }) {
                     marginBottom: "0.3rem",
                   }}
                 ></img>
-                도움이 돼요
+                Helpful
               </div>
               {/* <div className="helpbuttonnum">{recommend}</div> */}
               <div className="helpbuttonnum">{review.good}</div>
@@ -95,7 +95,7 @@ function ReviewPage({ locationId }) {
                     marginBottom: "0.3rem",
                   }}
                 ></img>
-                도움이 안돼요
+                Not Helpful
               </div>
               <div className="helpbuttonnum">{bad}</div>
             </button>
@@ -118,14 +118,14 @@ function ReviewPage({ locationId }) {
             value="disabled"
             onClick={() => setUserType("disabled")}
           />
-          <label>장애인 이용자</label>
+          <label>Disabled User</label>
           <input
             type="radio"
             name="radio-group"
             value="abled"
             onClick={() => setUserType("abled")}
           />
-          <label>비장애인 이용자</label>
+          <label>Non-disabled User</label>
           <input
             type="radio"
             name="radio-group"
@@ -133,12 +133,12 @@ function ReviewPage({ locationId }) {
             defaultChecked
             onClick={() => setUserType("anonymous")}
           />
-          <label>익명</label>
+          <label>Anonymous</label>
         </div>
         <textarea
           className="reviewinput"
           onChange={(event) => setInputValue(event.target.value)}
-          placeholder="작성한 후기는 익명으로 등록됩니다."
+          placeholder="The reviews wil be registered anonymously."
           value={inputValue}
         />
         <button
@@ -147,12 +147,12 @@ function ReviewPage({ locationId }) {
             postReview(userType, locationId, inputValue, rating) && clear()
           }
         >
-          등록
+          Register
         </button>
       </div>
       <div className="reviewlist">
         <div className="reviewlisttitle">
-          <div className="reviewlistnum">후기 {reviewNum}개</div>
+          <div className="reviewlistnum">{reviewNum} reviews</div>
           <div className="reviewlistsort">
             <div
               onClick={() => setSort("recommended")}
@@ -162,7 +162,7 @@ function ReviewPage({ locationId }) {
                   : { fontWeight: "normal" }
               }
             >
-              사용자 추천순
+              User Recommendation
             </div>
             <div>&nbsp;|</div>
             <div
@@ -173,7 +173,7 @@ function ReviewPage({ locationId }) {
                   : { fontWeight: "normal" }
               }
             >
-              최근 작성순
+              Last written order
             </div>
           </div>
         </div>
