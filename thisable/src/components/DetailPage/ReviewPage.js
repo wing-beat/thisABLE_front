@@ -108,7 +108,7 @@ function ReviewPage({ locationId }) {
     <div>
       <div className="reviewcontainer">
         <div className="reviewinputtop">
-          <div className="reviewtitle">후기</div>
+          <div className="reviewtitle">Review</div>
           <Rating onClick={handleRating} ratingValue={rating} />
         </div>
         <div className="userinfo">
