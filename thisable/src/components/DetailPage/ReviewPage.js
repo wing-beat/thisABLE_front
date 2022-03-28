@@ -162,7 +162,7 @@ function ReviewPage({ locationId }) {
                   : { fontWeight: "normal" }
               }
             >
-              User Recommendation
+              Recommendation order
             </div>
             <div>&nbsp;|</div>
             <div

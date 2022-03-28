@@ -6,7 +6,7 @@
 .MainPageList {
   overflow: auto;
   height: 94vh;
-  min-width: 380px;
+  min-width: 520px;
 }
 
 @media screen and (max-width: 768px) {

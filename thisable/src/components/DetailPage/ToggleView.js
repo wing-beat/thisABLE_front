@@ -7,6 +7,7 @@ import {
   useAccordionButton,
 } from "react-bootstrap";
 import { getPlaceDetailCharger } from "../../services/user.service";
+import "./DetailPage.css";
 
 function CustomToggle({ children, eventKey, callback }) {
   const [message, setMessage] = useState("▶");
