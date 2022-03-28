@@ -11,10 +11,10 @@ function NavBar() {
           <img className="logoimg" alt="logo" src={logoimg}></img>
         </Nav>
         <Nav className="nav-button">
-          <Nav.Link href="/" media="screen and (min-width:768px) and (max-width: 1042px)" className="webnav">지도 보기</Nav.Link>
-          <Nav.Link href="/" media="screen and (min-width:768px) and (max-width: 1042px)" className="webnav">리스트 보기</Nav.Link>
-          <Nav.Link href="/" media="screen and (min-width:0px) and (max-width: 768px)" className="mobilenav">지도 보기</Nav.Link>
-          <Nav.Link href="/list" media="screen and (min-width:0px) and (max-width: 768px)" className="mobilenav">리스트 보기</Nav.Link>
+          <Nav.Link href="/" media="screen and (min-width:768px) and (max-width: 1042px)" className="webnav">View Map</Nav.Link>
+          <Nav.Link href="/" media="screen and (min-width:768px) and (max-width: 1042px)" className="webnav">View List</Nav.Link>
+          <Nav.Link href="/" media="screen and (min-width:0px) and (max-width: 768px)" className="mobilenav">View Map</Nav.Link>
+          <Nav.Link href="/list" media="screen and (min-width:0px) and (max-width: 768px)" className="mobilenav">View List</Nav.Link>
         </Nav>
       </Navbar>
     </div>

@@ -104,7 +104,7 @@ function MapPage() {
                 style={{ marginRight: "0.5rem" }}
                 src={toiletImg}
               ></img>
-              장애인 화장실
+              Disabled Toilet
             </div>
             <div onClick={() => setCategory("icon2")}>
               <img
@@ -112,7 +112,7 @@ function MapPage() {
                 style={{ marginRight: "0.5rem" }}
                 src={chargerImg}
               ></img>
-              휠체어 충전기
+              Wheelchair Charger
             </div>
             <div onClick={() => setCategory("icon3")}>
               <img
@@ -120,7 +120,7 @@ function MapPage() {
                 style={{ marginRight: "0.5rem" }}
                 src={elevatorImg}
               ></img>
-              엘리베이터
+              Elevator
             </div>
             <div onClick={() => setCategory("icon4")}>
               <img
@@ -128,12 +128,12 @@ function MapPage() {
                 style={{ marginRight: "0.5rem" }}
                 src={slopeImg}
               ></img>
-              슬로프
+              Slope
             </div>
-            <div onClick={() => setCategory("")}>모두 보기</div>
+            <div onClick={() => setCategory("")}>View All</div>
           </div>
           <Link to="/list" style={{ textDecoration: "none", color: "black" }}>
-            <div className="listViewBtn">리스트 보기</div>
+            <div className="listViewBtn">View List</div>
           </Link>
         </div>
         {renderMarker}

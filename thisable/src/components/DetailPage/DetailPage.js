@@ -30,14 +30,14 @@ function DetailPage() {
         media="screen and (min-width:768px) and (max-width: 1042px)"
         className="backweb"
       >
-        ◀ 뒤로가기
+        ◀ Go Back
       </Link>
       <Link
         to={`/list`}
         media="screen and (min-width:0px) and (max-width: 768px)"
         className="backmobile"
       >
-        ◀ 리스트로 가기
+        ◀ Go to List
       </Link>
       <div className="placedetail">
         <div className="placenametype">
@@ -55,25 +55,25 @@ function DetailPage() {
           {place.isToiletExists && (
             <div className="placeicon">
               <img src={toiletImg}></img>
-              <div className="placeiconname">장애인 화장실</div>
+              <div className="placeiconname">Disabled Toilet</div>
             </div>
           )}
           {place.isChargerExists && (
             <div className="placeicon">
               <img src={chargerImg}></img>
-              <div className="placeiconname">휠체어 충전기</div>
+              <div className="placeiconname">Wheelchair Charger</div>
             </div>
           )}
           {place.isElevatorExists && (
             <div className="placeicon">
               <img src={elevatorImg}></img>
-              <div className="placeiconname">엘리베이터</div>
+              <div className="placeiconname">Elevator</div>
             </div>
           )}
           {place.isSlopeExists && (
             <div className="placeicon">
               <img src={slopeImg}></img>
-              <div className="placeiconname">슬로프</div>
+              <div className="placeiconname">Slope</div>
             </div>
           )}
         </div>
